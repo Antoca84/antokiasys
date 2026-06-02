@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Antokia System automatizza la gestione del tuo Airbnb. Setup in 48 ore, notifiche in tempo reale, ospiti serviti senza che tu muova un dito.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Antokia System — Automatizza il tuo Airbnb">
+  <meta property="og:description" content="Setup in 48 ore. Notifiche in tempo reale. Gli ospiti trovano tutto, senza che tu muova un dito.">
+  <meta property="og:image" content="https://aks.venini59.com/assets/img/og-image.jpg">
+  <meta property="og:url" content="https://aks.venini59.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="color-scheme" content="light only">
+
+  <title>Antokia System — Automatizza il tuo Airbnb</title>
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Epilogue:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Antokia System — Home">Antokia System</a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#how-it-works" class="nav__link">Come funziona</a></li>
+        <li><a href="#pricing" class="nav__link">Prezzi</a></li>
+        <li><a href="#health-check" class="nav__link">Health Check</a></li>
+      </ul>
+
+      <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--pill btn--gold-outline nav__cta" target="_blank" rel="noopener">
+        Check &nbsp;<span aria-hidden="true">€149 →</span>
+      </a>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="nav__overlay" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu mobile">
+      <button class="nav__close" id="nav-close" aria-label="Chiudi menu">✕</button>
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="#how-it-works" class="nav__overlay-link">Come funziona</a></li>
+        <li><a href="#pricing" class="nav__overlay-link">Prezzi</a></li>
+        <li><a href="#health-check" class="nav__overlay-link">Health Check</a></li>
+      </ul>
+      <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--pill btn--gold nav__overlay-cta" target="_blank" rel="noopener">
+        Inizia con il Check €149 →
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" data-screen-label="Hero" aria-label="Introduzione">
+      <div class="hero__mesh" aria-hidden="true">
+        <div class="mesh-orb mesh-orb--1"></div>
+        <div class="mesh-orb mesh-orb--2"></div>
+        <div class="mesh-orb mesh-orb--3"></div>
+      </div>
+
+      <div class="hero__grid">
+
+        <div class="hero__copy">
+          <span class="hero__eyebrow">
+            <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+            Gestione Airbnb automatizzata · Milano
+          </span>
+
+          <h1 class="hero__h1">
+            <span class="hero__h1-word">Il</span>
+            <span class="hero__h1-word">tuo</span>
+            <span class="hero__h1-word">Airbnb</span>
+            <span class="hero__h1-word hero__h1-word--accent">lavora</span>
+            <span class="hero__h1-word hero__h1-word--accent">da</span>
+            <span class="hero__h1-word hero__h1-word--accent">solo.</span>
+          </h1>
+
+          <p class="hero__lead">
+            Setup in 48 ore, fatto da noi. Tu ricevi solo le notifiche che contano — il resto lo gestisce il sistema.
+          </p>
+
+          <div class="hero__ctas">
+            <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+              Inizia con il Check €149
+            </a>
+            <a href="#pricing" class="btn btn--lg btn--ghost">Scopri i piani ↓</a>
+          </div>
+
+          <ul class="hero__trust" role="list">
+            <li><span class="hero__trust-dot" aria-hidden="true"></span> 4 strutture attive</li>
+            <li>Nessun contratto</li>
+            <li>0 installazioni</li>
+          </ul>
+        </div>
+
+        <!-- Visual animato: caos → calma -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hp">
+            <div class="hp__glow"></div>
+            <div class="hp__screen">
+              <div class="hp__bar">
+                <span class="hp__bar-name">Notifiche</span>
+                <span class="hp__bar-badge"><span class="hp__bar-n" id="hpBadge">0</span></span>
+              </div>
+
+              <div class="hp__feed">
+                <div class="hp-notif" data-i="1">
+                  <span class="hp-notif__avatar" style="background:#c98a5e"></span>
+                  <span class="hp-notif__txt"><b>Ospite</b> · Qual è la password del WiFi?</span>
+                  <span class="hp-notif__t">23:04</span>
+                </div>
+                <div class="hp-notif" data-i="2">
+                  <span class="hp-notif__avatar" style="background:#5e84c9"></span>
+                  <span class="hp-notif__txt"><b>Ospite</b> · A che ora è il check-in?</span>
+                  <span class="hp-notif__t">23:11</span>
+                </div>
+                <div class="hp-notif hp-notif--alert" data-i="3">
+                  <span class="hp-notif__avatar hp-notif__avatar--air">a</span>
+                  <span class="hp-notif__txt"><b>Airbnb</b> · Nuova richiesta di prenotazione</span>
+                  <span class="hp-notif__t">23:27</span>
+                </div>
+                <div class="hp-notif" data-i="4">
+                  <span class="hp-notif__avatar" style="background:#7aab86"></span>
+                  <span class="hp-notif__txt"><b>Ospite</b> · Come funziona il riscaldamento?</span>
+                  <span class="hp-notif__t">23:41</span>
+                </div>
+              </div>
+
+              <div class="hp__sweep"></div>
+
+              <div class="hp__calm">
+                <div class="hp__calm-check">✓</div>
+                <div class="hp__calm-title">Tutto gestito</div>
+                <div class="hp__calm-sub">Nessuna azione richiesta</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">scroll</span>
+      </div>
+    </section>
+
+    <!-- ═══ PRIMA / DOPO ═══ -->
+    <section class="before-after" aria-label="Prima e dopo Antokia System">
+      <div class="before-after__inner">
+
+        <div class="before-after__col before-after__col--prima">
+          <span class="ba-col-label">Prima</span>
+          <h2 class="ba-col-title">Le 23:00 di un host.</h2>
+          <div class="ba-notifications" aria-label="Notifiche ricevute di notte">
+            <div class="ba-notif">
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Ospite 1</span>
+                <span class="ba-notif__msg">Qual è la password del WiFi?</span>
+              </div>
+              <span class="ba-notif__time">23:04</span>
+            </div>
+            <div class="ba-notif">
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Ospite 2</span>
+                <span class="ba-notif__msg">A che ora devo lasciare le chiavi?</span>
+              </div>
+              <span class="ba-notif__time">23:11</span>
+            </div>
+            <div class="ba-notif">
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Ospite 3</span>
+                <span class="ba-notif__msg">Come si accende il riscaldamento?</span>
+              </div>
+              <span class="ba-notif__time">23:18</span>
+            </div>
+            <div class="ba-notif ba-notif--airbnb">
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Airbnb</span>
+                <span class="ba-notif__msg">Hai una nuova richiesta di prenotazione</span>
+              </div>
+              <span class="ba-notif__time">23:27</span>
+            </div>
+            <div class="ba-notif">
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Ospite 1</span>
+                <span class="ba-notif__msg">Sei disponibile?</span>
+              </div>
+              <span class="ba-notif__time">23:41</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="before-after__col before-after__col--dopo">
+          <span class="ba-col-label">Dopo</span>
+          <h2 class="ba-col-title">Le tue 23:00.</h2>
+          <div class="ba-checks">
+            <div class="ba-check-item">
+              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span>Risposta automatica inviata</span>
+            </div>
+            <div class="ba-check-item">
+              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span>Istruzioni check-in inviate</span>
+            </div>
+            <div class="ba-check-item">
+              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span>Nessuna azione richiesta</span>
+            </div>
+          </div>
+          <p class="ba-muted">Il sistema ha gestito tutto.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ COME FUNZIONA ═══ -->
+    <section class="how-it-works" id="how-it-works" aria-label="Come funziona">
+      <div class="section-inner">
+        <p class="section-kicker section-kicker--light">Il sistema</p>
+        <h2 class="section-title section-title--light">Come funziona.</h2>
+        <p class="section-sub section-sub--light">Tre passi. Poi non ci pensi più.</p>
+      </div>
+
+      <div class="how-it-works__track">
+        <!-- SVG connector line -->
+        <svg class="how-it-works__svg" aria-hidden="true" viewBox="0 0 2 300" preserveAspectRatio="none">
+          <line class="connector-line" x1="1" y1="0" x2="1" y2="300" stroke-width="2"/>
+        </svg>
+
+        <div class="how-it-works__steps">
+
+          <article class="step" data-step="1">
+            <div class="step__number">
+              <span class="step__n">01</span>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title">Ci mandi il link del tuo annuncio.</h3>
+              <p class="step__text">Nient'altro. Analizziamo tutto noi — competitor, foto, problemi. Ti mandiamo un report entro 48 ore.</p>
+            </div>
+          </article>
+
+          <article class="step" data-step="2">
+            <div class="step__number">
+              <span class="step__n">02</span>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title">Noi configuriamo tutto.</h3>
+              <p class="step__text">Nessuna installazione da parte tua. Ti chiediamo accesso una volta sola. Il sistema è attivo in 48 ore.</p>
+            </div>
+          </article>
+
+          <article class="step" data-step="3">
+            <div class="step__number">
+              <span class="step__n">03</span>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title">Ricevi solo quello che conta.</h3>
+              <p class="step__text">Nessun rumore. Solo le notifiche che richiedono la tua attenzione. Il resto lo gestisce il sistema.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SOCIAL PROOF ═══ -->
+    <section class="social-proof" aria-label="Strutture attive">
+      <div class="section-inner">
+        <p class="section-kicker">Già attivo</p>
+        <h2 class="social-proof__headline">Su <strong>4 strutture</strong> a Milano.<br>Oggi.</h2>
+        <p class="social-proof__sub">Non un prototipo. Non in beta. Funzionante, adesso.</p>
+      </div>
+
+      <div class="social-proof__grid">
+
+        <div class="property-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          <div class="property-badge__info">
+            <span class="property-badge__name">Loft Milano</span>
+            <span class="property-badge__status">Sistema attivo</span>
+          </div>
+        </div>
+
+        <div class="property-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          <div class="property-badge__info">
+            <span class="property-badge__name">Mini Manga</span>
+            <span class="property-badge__status">Sistema attivo</span>
+          </div>
+        </div>
+
+        <div class="property-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          <div class="property-badge__info">
+            <span class="property-badge__name">Ottone</span>
+            <span class="property-badge__status">Sistema attivo</span>
+          </div>
+        </div>
+
+        <div class="property-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          <div class="property-badge__info">
+            <span class="property-badge__name">Vintage Vocale</span>
+            <span class="property-badge__status">Sistema attivo</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ GUEST GUIDE ═══ -->
+    <section class="guest-guide" id="guestguide" aria-label="Sito guida ospiti incluso in ogni piano">
+      <div class="guest-guide__inner">
+
+        <div class="guest-guide__text">
+          <p class="section-kicker">Incluso in ogni piano</p>
+          <h2 class="section-title">I tuoi ospiti hanno già<br>un sito web.</h2>
+          <p class="guest-guide__lead">Ogni proprietà ha una guida digitale in 8 lingue. Gli ospiti accedono con il codice prenotazione — nessuna app, nessun account.</p>
+          <ul class="guest-guide__list" role="list">
+            <li><span class="check" aria-hidden="true">✓</span> Check-in illustrato passo per passo</li>
+            <li><span class="check" aria-hidden="true">✓</span> WiFi, elettrodomestici, house rules</li>
+            <li><span class="check" aria-hidden="true">✓</span> Consigli locali e informazioni zona</li>
+            <li><span class="check" aria-hidden="true">✓</span> Funziona in italiano, inglese, spagnolo, francese, tedesco, portoghese, cinese, coreano</li>
+          </ul>
+          <p class="guest-guide__muted">Già attivo su 4 strutture a Milano.</p>
+          <a href="#" class="guest-guide__link">Solo la guida, senza automazioni → €299</a>
+        </div>
+
+        <div class="guest-guide__visual" aria-label="Anteprima sito guida ospiti">
+          <div class="phone-mock" aria-hidden="true">
+            <div class="phone-mock__bar"></div>
+            <div class="phone-mock__screen">
+              <div class="phone-mock__header">
+                <span class="phone-mock__prop-name">Loft Milano</span>
+                <div class="phone-mock__lang-pills">
+                  <span class="phone-mock__lang phone-mock__lang--active">IT</span>
+                  <span class="phone-mock__lang">EN</span>
+                  <span class="phone-mock__lang">+6</span>
+                </div>
+              </div>
+              <nav class="phone-mock__tabs" aria-label="Sezioni guida">
+                <span class="phone-mock__tab phone-mock__tab--active">Accesso</span>
+                <span class="phone-mock__tab">WiFi</span>
+                <span class="phone-mock__tab">Check-out</span>
+              </nav>
+              <div class="phone-mock__rows">
+                <div class="phone-mock__row">
+                  <div class="phone-mock__row-icon phone-mock__row-icon--key"></div>
+                  <div class="phone-mock__row-info">
+                    <span class="phone-mock__row-label">Codice portone</span>
+                    <span class="phone-mock__row-val">4591#</span>
+                  </div>
+                </div>
+                <div class="phone-mock__row">
+                  <div class="phone-mock__row-icon phone-mock__row-icon--door"></div>
+                  <div class="phone-mock__row-info">
+                    <span class="phone-mock__row-label">Appartamento</span>
+                    <span class="phone-mock__row-val">Piano 3 · Scala B</span>
+                  </div>
+                </div>
+                <div class="phone-mock__row">
+                  <div class="phone-mock__row-icon phone-mock__row-icon--wifi"></div>
+                  <div class="phone-mock__row-info">
+                    <span class="phone-mock__row-label">Rete WiFi</span>
+                    <span class="phone-mock__row-val">AntokiaGuest_5G</span>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-mock__wa-btn">
+                <span class="phone-mock__wa-dot" aria-hidden="true"></span>
+                Contatta l'host su WhatsApp
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ PRICING ═══ -->
+    <section class="pricing" id="pricing" aria-label="Piani e prezzi">
+      <div class="section-inner">
+        <p class="section-kicker">Prezzi</p>
+        <h2 class="section-title">Scegli il piano. Poi non ci pensi più.</h2>
+        <p class="section-sub">Nessun contratto. Disdici quando vuoi.</p>
+      </div>
+
+      <div class="pricing__grid">
+
+        <!-- Solo -->
+        <article class="pricing-card" aria-label="Piano Solo">
+          <p class="pricing-card__question">Vuoi smettere di fare il segretario dei tuoi ospiti?</p>
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name">Solo</h3>
+            <div class="pricing-card__price">
+              <span class="price-amount">€79</span>
+              <span class="price-period">/mese</span>
+            </div>
+            <p class="pricing-card__setup">€299 una tantum · 1 proprietà</p>
+          </div>
+          <ul class="pricing-card__bullets" role="list">
+            <li>Gli ospiti trovano tutto da soli — sito guida in 8 lingue con il codice prenotazione</li>
+            <li>WhatsApp automatico per ogni soggiorno: istruzioni, benvenuto, reminder checkout</li>
+            <li>Tu ricevi solo le notifiche che contano — pagamenti, booking, recensioni su Telegram</li>
+          </ul>
+          <div class="pricing-accordion">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-solo">
+              Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
+            </button>
+            <div class="pricing-accordion__content" id="acc-solo" aria-hidden="true">
+              <ul class="pricing-card__features" role="list">
+                <li><span class="check" aria-hidden="true">✓</span> Notifiche Telegram intelligenti (pagamenti, booking, recensioni, silenzio sul resto)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Briefing mattutino automatico alle 07:00</li>
+                <li><span class="check" aria-hidden="true">✓</span> Sequenza WhatsApp 3 messaggi per ogni ospite (IT/EN)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Sito guida ospiti in 8 lingue</li>
+                <li><span class="check" aria-hidden="true">✓</span> Setup con video guida</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="btn btn--full btn--outline-dark">
+            Inizia con Solo →
+          </a>
+        </article>
+
+        <!-- Pro (featured) -->
+        <article class="pricing-card pricing-card--featured" aria-label="Piano Pro, più scelto">
+          <div class="pricing-card__badge" aria-label="Il più scelto">Più scelto</div>
+          <p class="pricing-card__question">Vuoi che le operazioni girino senza di te?</p>
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name">Pro</h3>
+            <div class="pricing-card__price">
+              <span class="price-amount">€249</span>
+              <span class="price-period">/mese</span>
+            </div>
+            <p class="pricing-card__setup">€799 una tantum · fino a 5 proprietà</p>
+          </div>
+          <ul class="pricing-card__bullets" role="list">
+            <li>Sai se l'ospite è entrato, senza aprire niente — smart lock Nuki con alert in tempo reale</li>
+            <li>Non lasci mai una recensione senza risposta — bozza AI, approvi con un tap su Telegram</li>
+            <li>Il team pulizie sa quando intervenire — notifica automatica dopo ogni checkout</li>
+          </ul>
+          <div class="pricing-accordion">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-pro">
+              Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
+            </button>
+            <div class="pricing-accordion__content" id="acc-pro" aria-hidden="true">
+              <ul class="pricing-card__features" role="list">
+                <li><span class="check" aria-hidden="true">✓</span> Tutto di Solo</li>
+                <li><span class="check" aria-hidden="true">✓</span> Smart lock Nuki/TTLock — alert check-in/fallito</li>
+                <li><span class="check" aria-hidden="true">✓</span> Risposta recensioni AI — approvi su Telegram, il sistema posta su Airbnb</li>
+                <li><span class="check" aria-hidden="true">✓</span> Verifica documenti Vikey — approvazione automatica</li>
+                <li><span class="check" aria-hidden="true">✓</span> Monitor prezzi competitor con alert soglia</li>
+                <li><span class="check" aria-hidden="true">✓</span> Bot Telegram per ospiti — FAQ auto, escalation umana se necessario</li>
+                <li><span class="check" aria-hidden="true">✓</span> Audit onboarding 2h incluso nel setup</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="btn btn--full btn--gold">
+            Inizia con Pro →
+          </a>
+        </article>
+
+        <!-- Manager -->
+        <article class="pricing-card" aria-label="Piano Manager">
+          <p class="pricing-card__question">Vuoi gestire un business, non una serie di appartamenti?</p>
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name">Manager</h3>
+            <div class="pricing-card__price">
+              <span class="price-amount">€449</span>
+              <span class="price-period">/mese</span>
+            </div>
+            <p class="pricing-card__setup">€1.799 una tantum · proprietà illimitate</p>
+          </div>
+          <ul class="pricing-card__bullets" role="list">
+            <li>Un assistente AI ti dice come stanno andando le cose — a voce, in tempo reale</li>
+            <li>I messaggi degli ospiti vengono gestiti automaticamente, escalation solo se necessario</li>
+            <li>Vedi RevPAR, occupancy e margini di tutte le proprietà in un colpo solo</li>
+          </ul>
+          <div class="pricing-accordion">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-manager">
+              Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
+            </button>
+            <div class="pricing-accordion__content" id="acc-manager" aria-hidden="true">
+              <ul class="pricing-card__features" role="list">
+                <li><span class="check" aria-hidden="true">✓</span> Tutto di Pro</li>
+                <li><span class="check" aria-hidden="true">✓</span> JARVIS — assistente AI vocale con dati live</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI auto-risposta messaggi ospiti (in arrivo)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Revenue dashboard multi-property</li>
+                <li><span class="check" aria-hidden="true">✓</span> Profilo ospiti + blacklist automatica</li>
+                <li><span class="check" aria-hidden="true">✓</span> SLA supporto 4h su errori critici</li>
+                <li><span class="check" aria-hidden="true">✓</span> Review trimestrale KPI inclusa</li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="btn btn--full btn--outline-dark">
+            Inizia con Manager →
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══ HEALTH CHECK ═══ -->
+    <section class="health-check" id="health-check" aria-label="Health Check">
+      <div class="health-check__inner">
+
+        <div class="health-check__content">
+          <p class="section-kicker section-kicker--light">Punto di partenza</p>
+          <h2 class="health-check__title">Prima di automatizzare — capisci cosa non funziona.</h2>
+          <p class="health-check__lead">
+            Un'analisi completa del tuo annuncio. Competitore, foto, titolo, descrizione, prezzo dinamico, risposta media. Tutto.
+          </p>
+
+          <ul class="health-check__list" role="list">
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Analisi posizionamento vs competitor locali
+            </li>
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Audit fotografie con simulazione AI
+            </li>
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Ottimizzazione titolo e descrizione
+            </li>
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Analisi pricing dinamico
+            </li>
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Review response time e qualità risposte
+            </li>
+            <li>
+              <span class="hc-icon" aria-hidden="true">→</span>
+              Report PDF con action plan prioritizzato
+            </li>
+          </ul>
+
+          <div class="health-check__pricing-block">
+            <div class="hc-price">
+              <span class="hc-price-amount">€149</span>
+              <span class="hc-price-note">una tantum</span>
+            </div>
+            <p class="hc-price-offer">Setup compreso nel piano se acquisti entro 30 giorni dal check.</p>
+          </div>
+
+          <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+            Prenota il tuo Health Check →
+          </a>
+        </div>
+
+        <div class="health-check__visual" aria-label="Prima e dopo il sistema Antokia">
+          <div class="ba-container">
+            <!-- BEFORE: inbox caotica (CSS art) -->
+            <div class="ba-panel ba-panel--before" aria-label="Prima: inbox Airbnb caotica">
+              <div class="ba-panel__label">Prima</div>
+              <div class="inbox-mock">
+                <div class="inbox-header">
+                  <span class="inbox-dot red"></span>
+                  <span class="inbox-dot yellow"></span>
+                  <span class="inbox-dot green"></span>
+                  <span class="inbox-title">Airbnb Inbox</span>
+                  <span class="inbox-badge">23</span>
+                </div>
+                <div class="inbox-rows">
+                  <div class="inbox-row inbox-row--unread">
+                    <div class="inbox-avatar" style="background: #e07b5a;"></div>
+                    <div class="inbox-meta"><span>Ospite 1 — WiFi qual è la password?</span><small>5 min fa</small></div>
+                    <span class="inbox-dot-unread"></span>
+                  </div>
+                  <div class="inbox-row inbox-row--unread">
+                    <div class="inbox-avatar" style="background: #5a8ee0;"></div>
+                    <div class="inbox-meta"><span>Ospite 2 — A che ora è il check-out?</span><small>18 min fa</small></div>
+                    <span class="inbox-dot-unread"></span>
+                  </div>
+                  <div class="inbox-row">
+                    <div class="inbox-avatar" style="background: #6db88a;"></div>
+                    <div class="inbox-meta"><span>Ospite 3 — Dove si parcheggia?</span><small>1 ora fa</small></div>
+                  </div>
+                  <div class="inbox-row inbox-row--unread">
+                    <div class="inbox-avatar" style="background: #c0955a;"></div>
+                    <div class="inbox-meta"><span>Ospite 4 — Come si accende il riscaldamento</span><small>2 ore fa</small></div>
+                    <span class="inbox-dot-unread"></span>
+                  </div>
+                  <div class="inbox-row">
+                    <div class="inbox-avatar" style="background: #a05ab8;"></div>
+                    <div class="inbox-meta"><span>Ospite 5 — C'è lavatrice?</span><small>3 ore fa</small></div>
+                  </div>
+                  <div class="inbox-row inbox-row--unread">
+                    <div class="inbox-avatar" style="background: #e05a5a;"></div>
+                    <div class="inbox-meta"><span>Airbnb — Risposta richiesta entro 1h</span><small>4 ore fa</small></div>
+                    <span class="inbox-dot-unread" style="background: #e05a5a;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- AFTER: dashboard pulita (CSS art) -->
+            <div class="ba-panel ba-panel--after" aria-label="Dopo: dashboard Antokia System">
+              <div class="ba-panel__label">Dopo</div>
+              <div class="dash-mock">
+                <div class="dash-header">
+                  <span class="dash-logo">Antokia System</span>
+                  <span class="dash-status"><span class="live-dot live-dot--small" aria-hidden="true"></span> Attivo</span>
+                </div>
+                <div class="dash-metrics">
+                  <div class="dash-metric">
+                    <span class="dash-metric-val">€1.240</span>
+                    <span class="dash-metric-label">questo mese</span>
+                  </div>
+                  <div class="dash-metric">
+                    <span class="dash-metric-val">98%</span>
+                    <span class="dash-metric-label">tasso risposta</span>
+                  </div>
+                  <div class="dash-metric">
+                    <span class="dash-metric-val">4.9★</span>
+                    <span class="dash-metric-label">rating medio</span>
+                  </div>
+                </div>
+                <div class="dash-tasks">
+                  <div class="dash-task dash-task--done">
+                    <span class="task-check">✓</span> Risposta automatica inviata a Ospite 1
+                  </div>
+                  <div class="dash-task dash-task--done">
+                    <span class="task-check">✓</span> Risposta automatica inviata a Ospite 2
+                  </div>
+                  <div class="dash-task dash-task--done">
+                    <span class="task-check">✓</span> Check-in confermato — domani 15:00
+                  </div>
+                  <div class="dash-task">
+                    <span class="task-pending">◎</span> Report settimanale in preparazione
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq" aria-label="Domande frequenti">
+      <div class="section-inner">
+        <p class="section-kicker">FAQ</p>
+        <h2 class="section-title">Domande frequenti</h2>
+      </div>
+
+      <div class="faq__list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-1">
+            <span>Quanto tempo ci vuole per il setup?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-1" role="region" aria-hidden="true">
+            <p>Il setup completo richiede 48 ore dalla firma. Ti chiediamo accesso al tuo account Airbnb una volta sola, poi il sistema è operativo senza altri interventi da parte tua.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-2">
+            <span>Devo installare qualcosa sul mio account Airbnb?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-2" role="region" aria-hidden="true">
+            <p>No. Non devi installare né configurare nulla. Tutto il setup tecnico è gestito dal nostro team. A te serve solo fornire le credenziali una volta, in modo sicuro.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-3">
+            <span>Funziona se ho più strutture?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-3" role="region" aria-hidden="true">
+            <p>Sì. Il piano Solo copre 1 struttura, il piano Pro fino a 5, il piano Manager è illimitato. Se hai strutture su piattaforme diverse da Airbnb, contattaci per una soluzione personalizzata.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-4">
+            <span>Posso disdire in qualsiasi momento?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-4" role="region" aria-hidden="true">
+            <p>Sì, nessun vincolo contrattuale. Puoi disdire quando vuoi con un preavviso di 30 giorni. La quota di setup non è rimborsabile, ma il canone mensile si ferma al mese successivo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-5">
+            <span>L'Health Check è obbligatorio per i piani mensili?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-5" role="region" aria-hidden="true">
+            <p>No, non è obbligatorio. Ma è fortemente consigliato — ti dà un quadro chiaro di cosa ottimizzare prima di automatizzare. Bonus: se acquisti un piano entro 30 giorni dal check, il costo del setup è incluso.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-item__trigger" aria-expanded="false" aria-controls="faq-6">
+            <span>Come ricevo le notifiche?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-item__content" id="faq-6" role="region" aria-hidden="true">
+            <p>Via WhatsApp e email, in tempo reale. Ricevi un avviso per ogni prenotazione, cancellazione, e messaggio che richiede la tua attenzione. Gli avvisi di routine (risposte automatiche inviate, check-in confermati) sono in digest giornaliero.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER CTA ═══ -->
+  <footer class="footer-cta" role="contentinfo">
+    <div class="footer-cta__content">
+      <h2 class="footer-cta__title">Pronto a smettere di rincorrere email?</h2>
+      <div class="footer-cta__buttons">
+        <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+          Health Check €149 →
+        </a>
+        <a href="#pricing" class="btn btn--lg btn--outline-gold">
+          Scegli un piano ↑
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-cta__legal">
+      <p>P.IVA 10979860961 &nbsp;·&nbsp; <a href="mailto:hello@venini59.com">hello@venini59.com</a> &nbsp;·&nbsp; aks.venini59.com</p>
+      <p><a href="/privacy-policy" class="footer-link">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
