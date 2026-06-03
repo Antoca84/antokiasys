@@ -244,28 +244,28 @@
           </div>
           <div class="ba-checks">
             <div class="ba-check-item">
-              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span class="ba-check-icon" aria-hidden="true"><svg class="ba-check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="ba-check-circle" cx="12" cy="12" r="9.5" stroke="#3dba7e" stroke-width="1.5" stroke-linecap="round"/><polyline class="ba-check-mark" points="7.5,12.5 10.5,15.5 16.5,8.5" stroke="#3dba7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <div class="ba-check-body">
                 <span class="ba-check-label">Risposta automatica inviata</span>
                 <span class="ba-check-sub">Ospite 1, 2, 3 · in 3 lingue</span>
               </div>
             </div>
             <div class="ba-check-item">
-              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span class="ba-check-icon" aria-hidden="true"><svg class="ba-check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="ba-check-circle" cx="12" cy="12" r="9.5" stroke="#3dba7e" stroke-width="1.5" stroke-linecap="round"/><polyline class="ba-check-mark" points="7.5,12.5 10.5,15.5 16.5,8.5" stroke="#3dba7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <div class="ba-check-body">
                 <span class="ba-check-label">Prenotazione accettata</span>
                 <span class="ba-check-sub">Confermata automaticamente</span>
               </div>
             </div>
             <div class="ba-check-item">
-              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span class="ba-check-icon" aria-hidden="true"><svg class="ba-check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="ba-check-circle" cx="12" cy="12" r="9.5" stroke="#3dba7e" stroke-width="1.5" stroke-linecap="round"/><polyline class="ba-check-mark" points="7.5,12.5 10.5,15.5 16.5,8.5" stroke="#3dba7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <div class="ba-check-body">
                 <span class="ba-check-label">Check-in — domani ore 15:00</span>
                 <span class="ba-check-sub">Istruzioni già inviate via WhatsApp</span>
               </div>
             </div>
             <div class="ba-check-item">
-              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <span class="ba-check-icon" aria-hidden="true"><svg class="ba-check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="ba-check-circle" cx="12" cy="12" r="9.5" stroke="#3dba7e" stroke-width="1.5" stroke-linecap="round"/><polyline class="ba-check-mark" points="7.5,12.5 10.5,15.5 16.5,8.5" stroke="#3dba7e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               <div class="ba-check-body">
                 <span class="ba-check-label">Nessuna azione richiesta</span>
                 <span class="ba-check-sub">Il sistema ha gestito tutto</span>
@@ -345,64 +345,130 @@
 
         <div class="guest-guide__text">
           <p class="section-kicker">Incluso in ogni piano</p>
-          <h2 class="section-title">I tuoi ospiti hanno già<br>un sito web.</h2>
-          <p class="guest-guide__lead">Ogni proprietà ha una guida digitale in 8 lingue. Gli ospiti accedono con il codice prenotazione — nessuna app, nessun account.</p>
+          <h2 class="section-title">I tuoi ospiti hanno<br>già un sito web.</h2>
+          <p class="guest-guide__lead">Ogni proprietà ha una guida digitale in 8 lingue. Gli ospiti accedono con il codice prenotazione — <strong>direttamente nella loro lingua.</strong> L'accesso si disattiva automaticamente dopo il check-out.</p>
           <ul class="guest-guide__list" role="list">
             <li><span class="check" aria-hidden="true">✓</span> Check-in illustrato passo per passo</li>
             <li><span class="check" aria-hidden="true">✓</span> WiFi, elettrodomestici, house rules</li>
             <li><span class="check" aria-hidden="true">✓</span> Consigli locali e informazioni zona</li>
-            <li><span class="check" aria-hidden="true">✓</span> Funziona in italiano, inglese, spagnolo, francese, tedesco, portoghese, cinese, coreano</li>
+            <li><span class="check" aria-hidden="true">✓</span> Disponibile in 8 lingue — <strong>nessuna app, nessun account</strong></li>
           </ul>
-          <p class="guest-guide__muted">Già attivo su 4 strutture a Milano.</p>
+          <p class="guest-guide__muted">Già attivo in diverse strutture.</p>
           <a href="#" class="guest-guide__link">Solo la guida, senza automazioni → €299</a>
         </div>
 
         <div class="guest-guide__visual" aria-label="Anteprima sito guida ospiti">
-          <div class="phone-mock" aria-hidden="true">
-            <div class="phone-mock__bar"></div>
-            <div class="phone-mock__screen">
-              <div class="phone-mock__header">
-                <span class="phone-mock__prop-name">Loft Milano</span>
-                <div class="phone-mock__lang-pills">
-                  <span class="phone-mock__lang phone-mock__lang--active">IT</span>
-                  <span class="phone-mock__lang">EN</span>
-                  <span class="phone-mock__lang">+6</span>
+          <div class="gg-phone" id="gg-phone">
+            <div class="gg-phone__screen">
+
+              <div class="gg-island" id="gg-island"></div>
+
+              <div class="gg-statusbar">
+                <span class="gg-sb-time">9:41</span>
+                <div class="gg-sb-icons">
+                  <svg width="15" height="11" fill="none" viewBox="0 0 15 11"><rect x="0" y="5" width="2.5" height="6" rx="1" fill="white" opacity=".35"/><rect x="4" y="3" width="2.5" height="8" rx="1" fill="white" opacity=".55"/><rect x="8" y="1" width="2.5" height="10" rx="1" fill="white" opacity=".8"/><rect x="12" y="0" width="2.5" height="11" rx="1" fill="white"/></svg>
+                  <svg width="15" height="11" viewBox="0 0 24 12" fill="none"><rect x="0" y="1" width="20" height="10" rx="2.5" stroke="white" stroke-opacity=".6" stroke-width="1.2"/><rect x="1.5" y="2.5" width="13" height="7" rx="1.5" fill="white" opacity=".75"/><path d="M21.5 4.5v3c.9-.3 1.4-.9 1.4-1.5s-.5-1.2-1.4-1.5z" fill="white" opacity=".5"/></svg>
                 </div>
               </div>
-              <nav class="phone-mock__tabs" aria-label="Sezioni guida">
-                <span class="phone-mock__tab phone-mock__tab--active">Accesso</span>
-                <span class="phone-mock__tab">WiFi</span>
-                <span class="phone-mock__tab">Check-out</span>
-              </nav>
-              <div class="phone-mock__rows">
-                <div class="phone-mock__row">
-                  <div class="phone-mock__row-icon phone-mock__row-icon--key"></div>
-                  <div class="phone-mock__row-info">
-                    <span class="phone-mock__row-label">Codice portone</span>
-                    <span class="phone-mock__row-val">4591#</span>
-                  </div>
+
+              <!-- AUTH SCENE -->
+              <div class="gg-scene gg-auth-scene gg-visible" id="gg-scene-auth">
+                <div class="gg-auth-brand">
+                  <div class="gg-auth-icon">🏠</div>
+                  <div class="gg-auth-name">Antokia House</div>
+                  <div class="gg-auth-tagline">Milano · Guest Guide</div>
                 </div>
-                <div class="phone-mock__row">
-                  <div class="phone-mock__row-icon phone-mock__row-icon--door"></div>
-                  <div class="phone-mock__row-info">
-                    <span class="phone-mock__row-label">Appartamento</span>
-                    <span class="phone-mock__row-val">Piano 3 · Scala B</span>
+                <div class="gg-auth-fields">
+                  <div>
+                    <label class="gg-auth-label">Booking code</label>
+                    <div class="gg-auth-input gg-focused" id="gg-inp-code">&nbsp;</div>
                   </div>
-                </div>
-                <div class="phone-mock__row">
-                  <div class="phone-mock__row-icon phone-mock__row-icon--wifi"></div>
-                  <div class="phone-mock__row-info">
-                    <span class="phone-mock__row-label">Rete WiFi</span>
-                    <span class="phone-mock__row-val">AntokiaGuest_5G</span>
+                  <div>
+                    <label class="gg-auth-label">Guest name</label>
+                    <div class="gg-auth-input" id="gg-inp-name" style="color:#6B6560;font-size:12.5px">e.g. Smith</div>
                   </div>
+                  <button class="gg-auth-submit" id="gg-auth-btn">
+                    Access guide
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </button>
                 </div>
               </div>
-              <div class="phone-mock__wa-btn">
-                <span class="phone-mock__wa-dot" aria-hidden="true"></span>
-                Contatta l'host su WhatsApp
-              </div>
-            </div>
-          </div>
+
+              <!-- GUIDE SCENE -->
+              <div class="gg-scene gg-guide-scene" id="gg-scene-guide">
+                <div class="gg-topbar">
+                  <div class="gg-property">Loft Milano</div>
+                  <div class="gg-lang-row">
+                    <div class="gg-lpill gg-lpill--on" id="gg-lp1">IT</div>
+                    <div class="gg-lpill" id="gg-lp2">EN</div>
+                    <div class="gg-lpill-more">+6</div>
+                  </div>
+                </div>
+                <div class="gg-tabs">
+                  <div class="gg-tab gg-tab--on" id="gg-tab-a">Accesso</div>
+                  <div class="gg-tab" id="gg-tab-w">WiFi</div>
+                  <div class="gg-tab" id="gg-tab-c">Check-out</div>
+                </div>
+                <div class="gg-scroll-wrap">
+                  <div class="gg-scroll-body" id="gg-scroll">
+                    <!-- HERO -->
+                    <div class="gg-hero">
+                      <img src="assets/img/hero/loft-milano-hero.png" alt="Loft Milano" id="gg-hero-img">
+                      <div class="gg-hero-overlay">
+                        <div class="gg-welcome" id="gg-welcome">Benvenuto, Rossi 👋</div>
+                      </div>
+                    </div>
+                    <!-- tab content -->
+                    <div class="gg-tab-content" id="gg-tab-content">
+                      <!-- ACCESSO -->
+                      <div id="gg-content-accesso">
+                        <div class="gg-section">
+                          <div class="gg-section-label">Accesso appartamento</div>
+                          <div class="gg-irow" id="gg-r-portone"><div class="gg-irow-icon">🔑</div><div class="gg-irow-text"><div class="gg-irow-label" id="gg-l-portone">Codice portone</div><div class="gg-irow-value">4591#</div></div></div>
+                          <div class="gg-irow" id="gg-r-appt"><div class="gg-irow-icon">🏢</div><div class="gg-irow-text"><div class="gg-irow-label" id="gg-l-appt">Appartamento</div><div class="gg-irow-value" id="gg-v-appt">Piano 3 · Scala B</div></div></div>
+                          <div class="gg-irow" id="gg-r-wifi"><div class="gg-irow-icon">📶</div><div class="gg-irow-text"><div class="gg-irow-label" id="gg-l-wifi-r">Rete WiFi</div><div class="gg-irow-value">AntokiaGuest_5G</div></div></div>
+                        </div>
+                        <div class="gg-section"><div class="gg-section-label">Disponibile in</div></div>
+                        <div class="gg-chip-row" id="gg-lang-chips">
+                          <div class="gg-chip">🇮🇹 Italiano</div><div class="gg-chip">🇬🇧 English</div><div class="gg-chip">🇪🇸 Español</div><div class="gg-chip">🇫🇷 Français</div><div class="gg-chip">🇩🇪 Deutsch</div><div class="gg-chip">🇵🇹 Português</div><div class="gg-chip">🇨🇳 中文</div><div class="gg-chip">🇰🇷 한국어</div>
+                        </div>
+                      </div>
+                      <!-- WIFI -->
+                      <div id="gg-content-wifi" style="display:none">
+                        <div class="gg-section">
+                          <div class="gg-section-label">Rete principale</div>
+                          <div class="gg-irow" id="gg-w-net"><div class="gg-irow-icon">📡</div><div class="gg-irow-text"><div class="gg-irow-label">Rete</div><div class="gg-irow-value">AntokiaGuest_5G</div></div></div>
+                          <div class="gg-irow" id="gg-w-pass"><div class="gg-irow-icon">🔒</div><div class="gg-irow-text"><div class="gg-irow-label">Password</div><div class="gg-irow-value">benvenuto2024</div></div></div>
+                          <div class="gg-irow" id="gg-w-speed"><div class="gg-irow-icon">⚡</div><div class="gg-irow-text"><div class="gg-irow-label">Velocità</div><div class="gg-irow-value">300 Mbps · fibra</div></div></div>
+                        </div>
+                        <div class="gg-section" style="padding-top:4px">
+                          <div class="gg-section-label">Alternativa</div>
+                          <div class="gg-irow" id="gg-w-alt"><div class="gg-irow-icon">📶</div><div class="gg-irow-text"><div class="gg-irow-label">Hotspot</div><div class="gg-irow-value">AntokiaGuest_2.4</div></div></div>
+                        </div>
+                      </div>
+                      <!-- CHECKOUT -->
+                      <div id="gg-content-checkout" style="display:none">
+                        <div class="gg-section"><div class="gg-section-label">Checklist partenza</div></div>
+                        <div class="gg-crow" id="gg-co-1" style="padding-left:16px;padding-right:16px"><div class="gg-crow-check gg-done"><svg width="10" height="8" viewBox="0 0 12 9" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4.5,8 11,1"/></svg></div><div class="gg-crow-text">Porta la spazzatura al piano</div></div>
+                        <div class="gg-crow" id="gg-co-2" style="padding-left:16px;padding-right:16px"><div class="gg-crow-check"><svg width="10" height="8" viewBox="0 0 12 9" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4.5,8 11,1"/></svg></div><div class="gg-crow-text">Lascia le chiavi sul tavolo</div></div>
+                        <div class="gg-crow" id="gg-co-3" style="padding-left:16px;padding-right:16px"><div class="gg-crow-check"><svg width="10" height="8" viewBox="0 0 12 9" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4.5,8 11,1"/></svg></div><div class="gg-crow-text">Spegni il climatizzatore</div></div>
+                        <div class="gg-crow" id="gg-co-4" style="padding-left:16px;padding-right:16px"><div class="gg-crow-check"><svg width="10" height="8" viewBox="0 0 12 9" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1,4 4.5,8 11,1"/></svg></div><div class="gg-crow-text">Chiudi tutte le finestre</div></div>
+                      </div>
+                    </div><!-- /gg-tab-content -->
+                    <!-- WhatsApp -->
+                    <div class="gg-wa-btn" id="gg-wa-btn">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                      Contatta l'host su WhatsApp
+                    </div>
+                  </div><!-- /gg-scroll-body -->
+                </div><!-- /gg-scroll-wrap -->
+              </div><!-- /gg-guide-scene -->
+
+              <!-- Toast -->
+              <div class="gg-toast" id="gg-toast">✓ Accesso confermato</div>
+
+            </div><!-- /gg-phone__screen -->
+          </div><!-- /gg-phone -->
         </div>
 
       </div>
@@ -770,6 +836,236 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Guest Guide Phone Demo -->
+  <script>
+  (function() {
+    const $ = id => document.getElementById(id);
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+
+    function ggShow(id) {
+      ['gg-scene-auth','gg-scene-guide'].forEach(sid => {
+        const el = $(sid); if (!el) return;
+        if (sid === id) {
+          el.classList.add('gg-visible');
+        } else {
+          el.classList.remove('gg-visible');
+        }
+      });
+    }
+
+    async function ggType(el, text, ms) {
+      ms = ms || 72;
+      el.style.color = ''; el.style.fontSize = '';
+      for (let i = 0; i <= text.length; i++) {
+        el.innerHTML = text.slice(0, i) + '<span class="gg-caret"></span>';
+        await wait(ms + (Math.random() * 20 - 10));
+      }
+    }
+
+    function ggScrollTo(y, duration) {
+      duration = duration || 900;
+      const el = $('gg-scroll');
+      if (!el) return Promise.resolve();
+      const start = parseFloat((el.style.transform.match(/translateY\(([^)]+)/) || [0,0])[1]) || 0;
+      const target = -y, diff = target - start;
+      const startTime = performance.now();
+      const ease = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+      return new Promise(res => {
+        function step(now) {
+          const t = Math.min((now - startTime) / duration, 1);
+          el.style.transform = 'translateY(' + (start + diff * ease(t)) + 'px)';
+          if (t < 1) requestAnimationFrame(step); else res();
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    async function ggSetTab(name) {
+      ['a','w','c'].forEach(t => { const el = $('gg-tab-'+t); if(el) el.classList.toggle('gg-tab--on', t === name[0]); });
+      const tc = $('gg-tab-content');
+      if (!tc) return;
+      tc.classList.add('fading');
+      await wait(180);
+      const heroEl = document.querySelector('.gg-hero');
+      const waEl = $('gg-wa-btn');
+      if (name === 'accesso') {
+        if(heroEl) heroEl.style.display = '';
+        if($('gg-content-accesso')) $('gg-content-accesso').style.display = '';
+        if($('gg-content-wifi')) $('gg-content-wifi').style.display = 'none';
+        if($('gg-content-checkout')) $('gg-content-checkout').style.display = 'none';
+        if(waEl) waEl.style.display = '';
+      } else if (name === 'wifi') {
+        if(heroEl) heroEl.style.display = 'none';
+        if($('gg-content-accesso')) $('gg-content-accesso').style.display = 'none';
+        if($('gg-content-wifi')) $('gg-content-wifi').style.display = '';
+        if($('gg-content-checkout')) $('gg-content-checkout').style.display = 'none';
+        if(waEl) waEl.style.display = 'none';
+        ['gg-w-net','gg-w-pass','gg-w-speed','gg-w-alt'].forEach(id => { const e=$( id); if(e) e.classList.remove('in'); });
+        await wait(20);
+        for (const id of ['gg-w-net','gg-w-pass','gg-w-speed','gg-w-alt']) {
+          const e = $(id); if (!e) continue;
+          await wait(80); e.classList.add('in');
+        }
+      } else if (name === 'checkout') {
+        if(heroEl) heroEl.style.display = 'none';
+        if($('gg-content-accesso')) $('gg-content-accesso').style.display = 'none';
+        if($('gg-content-wifi')) $('gg-content-wifi').style.display = 'none';
+        if($('gg-content-checkout')) $('gg-content-checkout').style.display = '';
+        if(waEl) waEl.style.display = 'none';
+        ['gg-co-1','gg-co-2','gg-co-3','gg-co-4'].forEach(id => {
+          const e = $(id); if(!e) return;
+          e.classList.remove('in');
+          const ch = e.querySelector('.gg-crow-check'); if(ch) ch.classList.remove('gg-done');
+        });
+        await wait(20);
+        for (const id of ['gg-co-1','gg-co-2','gg-co-3','gg-co-4']) {
+          await wait(100); const e=$(id); if(e) e.classList.add('in');
+        }
+        await wait(400);
+        for (const id of ['gg-co-1','gg-co-2','gg-co-3','gg-co-4']) {
+          await wait(280);
+          const e=$(id); if(!e) continue;
+          const ch = e.querySelector('.gg-crow-check'); if(ch) ch.classList.add('gg-done');
+        }
+      }
+      tc.classList.remove('fading');
+    }
+
+    const GG_LANGS = ['IT','EN','ES','FR'];
+    const GG_LABELS = { IT:['Codice portone','Appartamento','Rete WiFi'], EN:['Building code','Apartment','WiFi network'], ES:['Código de entrada','Apartamento','Red WiFi'], FR:["Code d'entrée",'Appartement','Réseau WiFi'] };
+    const GG_VALS_APPT = { IT:'Piano 3 · Scala B', EN:'Floor 3 · Staircase B', ES:'Piso 3 · Escalera B', FR:'Étage 3 · Escalier B' };
+
+    function ggUpdateLang(lang) {
+      const ls = GG_LABELS[lang] || GG_LABELS.IT;
+      const lp = $('gg-l-portone'); if(lp) lp.textContent = ls[0];
+      const la = $('gg-l-appt');    if(la) la.textContent = ls[1];
+      const lw = $('gg-l-wifi-r');  if(lw) lw.textContent = ls[2];
+      const va = $('gg-v-appt');    if(va) va.textContent = GG_VALS_APPT[lang] || GG_VALS_APPT.IT;
+    }
+
+    async function ggSwitchLang(idx) {
+      const lang = GG_LANGS[idx], next = GG_LANGS[idx+1] || GG_LANGS[0];
+      const tc = $('gg-tab-content');
+      if(tc) tc.classList.add('fading');
+      await wait(180);
+      const lp1 = $('gg-lp1'), lp2 = $('gg-lp2');
+      if(lp1) { lp1.textContent = lang; lp1.classList.remove('gg-lpill--on'); await wait(30); lp1.classList.add('gg-lpill--on'); }
+      if(lp2) lp2.textContent = next;
+      ggUpdateLang(lang);
+      if(tc) tc.classList.remove('fading');
+    }
+
+    function ggResetRows() {
+      ['gg-r-portone','gg-r-appt','gg-r-wifi'].forEach(id => { const e=$(id); if(e) e.classList.remove('in'); });
+      const lc=$('gg-lang-chips'); if(lc) lc.classList.remove('in');
+      const wb=$('gg-wa-btn'); if(wb) wb.classList.remove('in','pulse');
+      const gw=$('gg-welcome'); if(gw) gw.classList.remove('in');
+      ['gg-w-net','gg-w-pass','gg-w-speed','gg-w-alt'].forEach(id => { const e=$(id); if(e) e.classList.remove('in'); });
+    }
+
+    async function ggDemo() {
+      while (true) {
+        // RESET
+        const ic=$('gg-inp-code'); if(ic){ic.innerHTML='&nbsp;';ic.classList.add('gg-focused');}
+        const iname=$('gg-inp-name'); if(iname){iname.innerHTML='e.g. Smith';iname.style.color='#6B6560';iname.style.fontSize='12.5px';}
+        const ab=$('gg-auth-btn'); if(ab) ab.classList.remove('press');
+        const toast=$('gg-toast'); if(toast) toast.classList.remove('show');
+        const island=$('gg-island'); if(island) island.classList.remove('expand');
+        const scroll=$('gg-scroll'); if(scroll){scroll.style.transform='translateY(0)';scroll.style.transition='none';}
+        const hero=document.querySelector('.gg-hero'); if(hero) hero.style.display='';
+        const ggHeroImg=$('gg-hero-img'); if(ggHeroImg) ggHeroImg.classList.remove('zoom');
+        if($('gg-content-accesso')) $('gg-content-accesso').style.display='';
+        if($('gg-content-wifi')) $('gg-content-wifi').style.display='none';
+        if($('gg-content-checkout')) $('gg-content-checkout').style.display='none';
+        const wb=$('gg-wa-btn'); if(wb) wb.style.display='';
+        ['a','w','c'].forEach(t => { const e=$('gg-tab-'+t); if(e) e.classList.toggle('gg-tab--on', t==='a'); });
+        const lp1=$('gg-lp1'); if(lp1){lp1.textContent='IT';lp1.classList.add('gg-lpill--on');}
+        const lp2=$('gg-lp2'); if(lp2){lp2.textContent='EN';lp2.classList.remove('gg-lpill--on');}
+        ggUpdateLang('IT'); ggResetRows();
+
+        ggShow('gg-scene-auth');
+        await wait(700);
+
+        // TYPE CODE
+        if($('gg-inp-code')) await ggType($('gg-inp-code'), 'HM3X9K', 68);
+        if($('gg-inp-code')) $('gg-inp-code').classList.remove('gg-focused');
+        await wait(280);
+
+        // TYPE NAME
+        if($('gg-inp-name')) $('gg-inp-name').classList.add('gg-focused');
+        if($('gg-inp-name')) await ggType($('gg-inp-name'), 'Rossi', 80);
+        if($('gg-inp-name')) $('gg-inp-name').classList.remove('gg-focused');
+        await wait(380);
+
+        // BUTTON
+        if(ab) ab.classList.add('press');
+        await wait(160);
+        if(ab) ab.classList.remove('press');
+        await wait(80);
+
+        // ISLAND + TOAST
+        if(island) island.classList.add('expand');
+        await wait(100);
+        if(toast) toast.classList.add('show');
+        await wait(900);
+        if(toast) toast.classList.remove('show');
+        if(island) island.classList.remove('expand');
+        await wait(200);
+
+        // GUIDE
+        ggShow('gg-scene-guide');
+        if(scroll) scroll.style.transition = '';
+        await wait(100);
+        if($('gg-hero-img')) $('gg-hero-img').classList.add('zoom');
+        const gw=$('gg-welcome'); if(gw){ await wait(350); gw.classList.add('in'); }
+        await wait(600);
+
+        for (const id of ['gg-r-portone','gg-r-appt','gg-r-wifi']) {
+          await wait(90); const e=$(id); if(e) e.classList.add('in');
+        }
+        await wait(500);
+        const lc=$('gg-lang-chips'); if(lc) lc.classList.add('in');
+        await wait(700);
+        await ggScrollTo(70, 800);
+        await wait(600);
+        if(wb){ wb.classList.add('in'); await wait(500); wb.classList.add('pulse'); await wait(800); wb.classList.remove('pulse'); }
+        await wait(400);
+        await ggScrollTo(0, 700);
+        await wait(500);
+
+        // LANG CYCLE
+        await ggSwitchLang(1); await wait(1400);
+        await ggSwitchLang(2); await wait(1400);
+        await ggSwitchLang(3); await wait(1200);
+        await ggSwitchLang(0); await wait(600);
+
+        // TABS
+        await ggSetTab('wifi');    await wait(1800);
+        await ggSetTab('checkout'); await wait(3000);
+        await ggSetTab('accesso');
+        ggResetRows();
+        if(gw) gw.classList.add('in');
+        for (const id of ['gg-r-portone','gg-r-appt','gg-r-wifi']) { await wait(80); const e=$(id); if(e) e.classList.add('in'); }
+        if(lc) lc.classList.add('in');
+        if(wb) wb.classList.add('in');
+        await wait(1200);
+
+        // FADE OUT
+        const gs = $('gg-scene-guide');
+        if (gs) { gs.classList.remove('gg-visible'); }
+        await wait(450);
+      }
+    }
+
+    window.ggDemoStart = function() {
+      ggDemo().catch(e => console.error('[ggDemo]', e));
+    };
+
+    // avvio immediato
+    ggDemoStart();
+  })();
+  </script>
 
 </body>
 </html>

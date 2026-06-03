@@ -622,16 +622,21 @@
   const ggText   = document.querySelector('.guest-guide__text');
   const ggVisual = document.querySelector('.guest-guide__visual');
 
-  if (ggText && ggVisual) {
-    const ggTrigger = { trigger: '.guest-guide__inner', start: 'top 80%', once: true };
+  if (ggText) {
     gsap.fromTo(ggText,
       { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: ggTrigger }
+      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: { trigger: '.guest-guide__inner', start: 'top 80%', once: true } }
     );
-    gsap.fromTo(ggVisual,
-      { x: 50, opacity: 0 },
-      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: ggTrigger }
-    );
+  }
+
+  if (ggVisual) {
+    const ggObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        ggObs.disconnect();
+        if (typeof ggDemoStart === 'function') ggDemoStart();
+      }
+    }, { threshold: 0.3 });
+    ggObs.observe(ggVisual);
   }
 
   /* ─── Pricing cards stagger ─── */
