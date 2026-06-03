@@ -193,33 +193,49 @@
     { name: 'Andrea C.',     city: 'Roma',     text: 'I miei ospiti spagnoli non controllavano Airbnb dopo aver prenotato. Classico. Adesso scrivo da Telegram come se mandassi un messaggio a un amico — e loro ricevono tutto in spagnolo sul loro WhatsApp. Per me è trasparente. Per loro sembra che parli la loro lingua.' }
   ];
 
-  const avatarColors = ['#9A7544','#5a84c9','#6db88a','#c98a5e','#9b6db8','#b8776d','#6d9fb8','#c9b25a','#a87b5a','#5a9eb8'];
+  const avatarMap = {
+    'Luca R.':       'assets/img/avatars/av1.webp',
+    'Marco T.':      'assets/img/avatars/av3.webp',
+    'Alessandro P.': 'assets/img/avatars/av5.webp',
+    'Matteo G.':     'assets/img/avatars/av1.webp',
+    'Paolo S.':      'assets/img/avatars/av3.webp',
+    'Davide B.':     'assets/img/avatars/av5.webp',
+    'Roberto L.':    'assets/img/avatars/av3.webp',
+    'Filippo A.':    'assets/img/avatars/av5.webp',
+    'Andrea C.':     'assets/img/avatars/av1.webp',
+    'Sara M.':       'assets/img/avatars/av2.webp',
+    'Giulia F.':     'assets/img/avatars/av4.webp',
+    'Francesca N.':  'assets/img/avatars/av6.webp',
+    'Elena C.':      'assets/img/avatars/av2.webp',
+    'Valentina R.':  'assets/img/avatars/av4.webp',
+    'Chiara M.':     'assets/img/avatars/av6.webp',
+    'Marta V.':      'assets/img/avatars/av2.webp',
+    'Simona T.':     'assets/img/avatars/av4.webp'
+  };
 
   function pickRandom(arr, n) {
     return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
   }
 
-  function initials(name) {
-    return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
-  }
-
   const tGrid = document.getElementById('testimonialsGrid');
   if (tGrid) {
-    pickRandom(testimonials, 3).forEach((t, i) => {
-      const color = avatarColors[testimonials.findIndex(x => x.name === t.name) % avatarColors.length];
+    pickRandom(testimonials, 3).forEach(t => {
+      const avatar = avatarMap[t.name] || 'assets/img/avatars/av1.webp';
       const card = document.createElement('article');
       card.className = 'testi-card';
       card.setAttribute('aria-label', 'Testimonianza di ' + t.name);
       card.innerHTML =
-        '<div class="testi-card__quote-mark" aria-hidden="true">“</div>' +
-        '<div class="testi-card__stars" aria-label="5 stelle">★★★★★</div>' +
-        '<p class="testi-card__text">' + t.text + '</p>' +
-        '<div class="testi-card__author">' +
-          '<div class="testi-card__avatar" style="background:' + color + '">' + initials(t.name) + '</div>' +
-          '<div class="testi-card__meta">' +
-            '<span class="testi-card__name">' + t.name + '</span>' +
-            '<span class="testi-card__city">' + t.city + '</span>' +
+        '<div class=”testi-card__header”>' +
+          '<img class=”testi-card__avatar” src=”' + avatar + '” alt=”' + t.name + '” loading=”lazy”>' +
+          '<div class=”testi-card__meta”>' +
+            '<span class=”testi-card__name”>' + t.name + '</span>' +
+            '<span class=”testi-card__city”>' + t.city + '</span>' +
           '</div>' +
+          '<div class=”testi-card__stars” aria-label=”5 stelle”>★★★★★</div>' +
+        '</div>' +
+        '<p class=”testi-card__text”>' + t.text + '</p>' +
+        '<div class=”testi-card__footer”>' +
+          '<span class=”testi-card__verified”>Host verificato</span>' +
         '</div>';
       tGrid.appendChild(card);
     });
