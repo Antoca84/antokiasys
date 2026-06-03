@@ -172,20 +172,72 @@
   /* ─── How it works: steps stagger ─── */
   revealOnScroll('.step', { stagger: 0.15, start: 'top 85%' });
 
-  /* ─── Social proof: badges ─── */
-  revealOnScroll('.property-badge', { stagger: 0.1 });
+  /* ─── Testimonials: random 3 + animate ─── */
+  const testimonials = [
+    { name: 'Luca R.',       city: 'Milano',   text: 'Prima mandavo le istruzioni di accesso a mano ogni volta. Adesso arrivano in automatico il giorno prima. Un ospite mi ha scritto \'tutto chiarissimo, grazie\' — non aveva fatto nessuna domanda.' },
+    { name: 'Sara M.',       city: 'Firenze',  text: 'Ho scoperto che i miei ospiti coreani non capivano le istruzioni in inglese. Adesso il sito le mostra in coreano automaticamente. Ho smesso di ricevere messaggi confusi la sera del check-in.' },
+    { name: 'Marco T.',      city: 'Bologna',  text: 'Gestisco tre appartamenti. Sapere in tempo reale quando arriva un pagamento, senza aprire Airbnb, sembra una cosa piccola. Non lo è. Controllo il telefono la metà delle volte e vedo solo quello che conta.' },
+    { name: 'Giulia F.',     city: 'Torino',   text: 'Un ospite è arrivato alle 2 di notte. Ho saputo che la serratura aveva aperto in tempo reale, senza aspettare messaggi. Mi sono addormentata tranquilla per la prima volta in mesi.' },
+    { name: 'Alessandro P.', city: 'Roma',     text: 'Dimenticavo di rispondere alle recensioni. Non per menefreghismo — semplicemente le perdevo. Adesso ricevo la bozza su Telegram, la approvo in due secondi e viene pubblicata. Il mio profilo non ha più silenzi.' },
+    { name: 'Francesca N.',  city: 'Napoli',   text: 'La verifica dei documenti su Vikey mi portava via venti minuti al giorno. Adesso ricevo una notifica quando è già fatto. Non ho ancora capito bene come funziona e non mi importa.' },
+    { name: 'Matteo G.',     city: 'Venezia',  text: 'Ogni mattina alle sette ricevo un messaggio con i check-in e checkout del giorno. Niente di più. Ho smesso di aprire il calendario ogni mezz\'ora per controllare se mi ero dimenticato qualcosa.' },
+    { name: 'Elena C.',      city: 'Bergamo',  text: 'Mi hanno segnalato che i competitor nella mia zona avevano abbassato i prezzi di un weekend. Ho sistemato in cinque minuti. Quel weekend era pieno, il precedente era vuoto. Non ci avrei mai fatto caso da sola.' },
+    { name: 'Paolo S.',      city: 'Bari',     text: 'Gli ospiti mi scrivono ancora, ma sono domande diverse. Non più \'dov\'è il WiFi\' o \'a che ora devo uscire\'. Quelle le risponde il sistema. Adesso mi scrivono per ringraziarmi.' },
+    { name: 'Valentina R.',  city: 'Padova',   text: 'Prima di configurarlo mi hanno fatto l\'analisi dell\'annuncio. Avevo la foto sbagliata come copertina da due anni. Due anni. Quella settimana ho cambiato e le richieste sono aumentate.' },
+    { name: 'Roberto L.',    city: 'Verona',   text: 'Il mio addetto alle pulizie sapeva già quando intervenire prima che io lo chiamassi. Gli arriva un messaggio dopo ogni checkout con l\'orario del prossimo check-in. Non ci sentiamo quasi più — nel senso migliore.' },
+    { name: 'Chiara M.',     city: 'Genova',   text: 'Ho ospiti da tutto il mondo. Non parlo spagnolo, non parlo cinese. Adesso la guida è nella loro lingua e non ricevo più messaggi in lingue che non capisco alle undici di sera su WhatsApp.' },
+    { name: 'Davide B.',     city: 'Catania',  text: 'A fine mese non dovevo più ricostruire quanto avevo guadagnato da zero. Ce l\'avevo già, in tempo reale. Piccola cosa, ma cambia come vivi il lavoro.' },
+    { name: 'Marta V.',      city: 'Brescia',  text: 'Un ospite aveva avuto problemi con il riscaldamento e non me lo aveva detto. Lo scopro dalla recensione. Adesso se qualcosa non va il sistema me lo segnala. Quella recensione non si ripete.' },
+    { name: 'Filippo A.',    city: 'Modena',   text: 'Avevo paura che automatizzare le risposte rendesse tutto più freddo. Il contrario. Gli ospiti ricevono tutto prima ancora di chiederlo. L\'ultimo ha scritto che era la prima volta che capiva le istruzioni di una casa al primo tentativo.' },
+    { name: 'Simona T.',     city: 'Milano',   text: 'Ho una coppia di anziani olandesi che non apriva l\'app dopo la prenotazione. Adesso ricevono tutto su WhatsApp nella loro lingua. Mi hanno lasciato cinque stelle scrivendo che ero stata "sempre disponibile e chiara". Non ho scritto una parola in olandese in vita mia.' },
+    { name: 'Andrea C.',     city: 'Roma',     text: 'I miei ospiti spagnoli non controllavano Airbnb dopo aver prenotato. Classico. Adesso scrivo da Telegram come se mandassi un messaggio a un amico — e loro ricevono tutto in spagnolo sul loro WhatsApp. Per me è trasparente. Per loro sembra che parli la loro lingua.' }
+  ];
 
-  if (!isMobile) {
-    gsap.to('.social-proof__grid', {
-      y: -20,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.social-proof',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 0.5
-      }
+  const avatarColors = ['#9A7544','#5a84c9','#6db88a','#c98a5e','#9b6db8','#b8776d','#6d9fb8','#c9b25a','#a87b5a','#5a9eb8'];
+
+  function pickRandom(arr, n) {
+    return [...arr].sort(() => Math.random() - 0.5).slice(0, n);
+  }
+
+  function initials(name) {
+    return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  }
+
+  const tGrid = document.getElementById('testimonialsGrid');
+  if (tGrid) {
+    pickRandom(testimonials, 3).forEach((t, i) => {
+      const color = avatarColors[testimonials.findIndex(x => x.name === t.name) % avatarColors.length];
+      const card = document.createElement('article');
+      card.className = 'testi-card';
+      card.setAttribute('aria-label', 'Testimonianza di ' + t.name);
+      card.innerHTML =
+        '<div class="testi-card__quote-mark" aria-hidden="true">“</div>' +
+        '<div class="testi-card__stars" aria-label="5 stelle">★★★★★</div>' +
+        '<p class="testi-card__text">' + t.text + '</p>' +
+        '<div class="testi-card__author">' +
+          '<div class="testi-card__avatar" style="background:' + color + '">' + initials(t.name) + '</div>' +
+          '<div class="testi-card__meta">' +
+            '<span class="testi-card__name">' + t.name + '</span>' +
+            '<span class="testi-card__city">' + t.city + '</span>' +
+          '</div>' +
+        '</div>';
+      tGrid.appendChild(card);
     });
+
+    gsap.fromTo('.testi-card',
+      { y: 56, opacity: 0, scale: 0.92 },
+      {
+        y: 0, opacity: 1, scale: 1,
+        duration: 0.65,
+        ease: 'back.out(1.4)',
+        stagger: 0.13,
+        scrollTrigger: {
+          trigger: tGrid,
+          start: 'top 82%',
+          once: true
+        }
+      }
+    );
   }
 
   /* ─── Guest guide: slide in from sides ─── */
