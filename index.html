@@ -159,68 +159,121 @@
 
     <!-- ═══ PRIMA / DOPO ═══ -->
     <section class="before-after" aria-label="Prima e dopo Antokia System">
+      <div class="section-inner">
+        <p class="section-kicker">Il confronto</p>
+        <h2 class="before-after__headline">
+          Le stesse ore.<br>
+          <span class="before-after__headline--gold">Due vite diverse.</span>
+        </h2>
+      </div>
+
       <div class="before-after__inner">
 
-        <div class="before-after__col before-after__col--prima">
-          <span class="ba-col-label">Prima</span>
-          <h2 class="ba-col-title">Le 23:00 di un host.</h2>
+        <!-- PRIMA -->
+        <div class="before-after__col before-after__col--prima" aria-label="Vita senza Antokia System">
+          <div class="ba-card-header">
+            <span class="ba-card-time">23:00</span>
+            <span class="ba-card-badge ba-card-badge--red">5 non letti</span>
+          </div>
+          <div class="ba-card-title">
+            <p>Nessuno dorme.</p>
+            <p class="ba-card-title--red">Nemmeno tu.</p>
+          </div>
           <div class="ba-notifications" aria-label="Notifiche ricevute di notte">
             <div class="ba-notif">
+              <span class="ba-notif__avatar" style="background:#e07b5a;"></span>
               <div class="ba-notif__body">
                 <span class="ba-notif__sender">Ospite 1</span>
+                <span class="ba-notif__sep">·</span>
                 <span class="ba-notif__msg">Qual è la password del WiFi?</span>
               </div>
               <span class="ba-notif__time">23:04</span>
             </div>
             <div class="ba-notif">
+              <span class="ba-notif__avatar" style="background:#5a8ee0;"></span>
               <div class="ba-notif__body">
                 <span class="ba-notif__sender">Ospite 2</span>
+                <span class="ba-notif__sep">·</span>
                 <span class="ba-notif__msg">A che ora devo lasciare le chiavi?</span>
               </div>
               <span class="ba-notif__time">23:11</span>
             </div>
-            <div class="ba-notif">
-              <div class="ba-notif__body">
-                <span class="ba-notif__sender">Ospite 3</span>
-                <span class="ba-notif__msg">Come si accende il riscaldamento?</span>
-              </div>
-              <span class="ba-notif__time">23:18</span>
-            </div>
             <div class="ba-notif ba-notif--airbnb">
+              <span class="ba-notif__avatar ba-notif__avatar--airbnb">a</span>
               <div class="ba-notif__body">
                 <span class="ba-notif__sender">Airbnb</span>
-                <span class="ba-notif__msg">Hai una nuova richiesta di prenotazione</span>
+                <span class="ba-notif__sep">·</span>
+                <span class="ba-notif__msg">Risposta richiesta entro 1 ora</span>
               </div>
               <span class="ba-notif__time">23:27</span>
             </div>
             <div class="ba-notif">
+              <span class="ba-notif__avatar" style="background:#6db88a;"></span>
+              <div class="ba-notif__body">
+                <span class="ba-notif__sender">Ospite 3</span>
+                <span class="ba-notif__sep">·</span>
+                <span class="ba-notif__msg">Come si accende il riscaldamento?</span>
+              </div>
+              <span class="ba-notif__time">23:33</span>
+            </div>
+            <div class="ba-notif">
+              <span class="ba-notif__avatar" style="background:#a05ab8;"></span>
               <div class="ba-notif__body">
                 <span class="ba-notif__sender">Ospite 1</span>
-                <span class="ba-notif__msg">Sei disponibile?</span>
+                <span class="ba-notif__sep">·</span>
+                <span class="ba-notif__msg">Sei ancora disponibile?</span>
               </div>
               <span class="ba-notif__time">23:41</span>
             </div>
           </div>
+          <p class="ba-card-footer ba-card-footer--red">Ogni notte. Ogni weekend. Ogni vacanza.</p>
+          <div class="ba-watermark" aria-hidden="true">PRIMA</div>
         </div>
 
-        <div class="before-after__col before-after__col--dopo">
-          <span class="ba-col-label">Dopo</span>
-          <h2 class="ba-col-title">Le tue 23:00.</h2>
+        <span class="before-after__arrow" aria-hidden="true">→</span>
+
+        <!-- DOPO -->
+        <div class="before-after__col before-after__col--dopo" aria-label="Vita con Antokia System">
+          <div class="ba-card-header">
+            <span class="ba-card-time ba-card-time--gold">23:00</span>
+            <span class="ba-card-badge ba-card-badge--green">✓ tutto gestito</span>
+          </div>
+          <div class="ba-card-title">
+            <p>Il sistema lavora.</p>
+            <p class="ba-card-title--gold">Tu dormi.</p>
+          </div>
           <div class="ba-checks">
             <div class="ba-check-item">
               <span class="ba-check-icon" aria-hidden="true">✓</span>
-              <span>Risposta automatica inviata</span>
+              <div class="ba-check-body">
+                <span class="ba-check-label">Risposta automatica inviata</span>
+                <span class="ba-check-sub">Ospite 1, 2, 3 · in 3 lingue</span>
+              </div>
             </div>
             <div class="ba-check-item">
               <span class="ba-check-icon" aria-hidden="true">✓</span>
-              <span>Istruzioni check-in inviate</span>
+              <div class="ba-check-body">
+                <span class="ba-check-label">Prenotazione accettata</span>
+                <span class="ba-check-sub">Confermata automaticamente</span>
+              </div>
             </div>
             <div class="ba-check-item">
               <span class="ba-check-icon" aria-hidden="true">✓</span>
-              <span>Nessuna azione richiesta</span>
+              <div class="ba-check-body">
+                <span class="ba-check-label">Check-in — domani ore 15:00</span>
+                <span class="ba-check-sub">Istruzioni già inviate via WhatsApp</span>
+              </div>
+            </div>
+            <div class="ba-check-item">
+              <span class="ba-check-icon" aria-hidden="true">✓</span>
+              <div class="ba-check-body">
+                <span class="ba-check-label">Nessuna azione richiesta</span>
+                <span class="ba-check-sub">Il sistema ha gestito tutto</span>
+              </div>
             </div>
           </div>
-          <p class="ba-muted">Il sistema ha gestito tutto.</p>
+          <p class="ba-card-footer ba-card-footer--muted">Silenzio. Meritato.</p>
+          <div class="ba-watermark ba-watermark--dopo" aria-hidden="true">DOPO</div>
         </div>
 
       </div>
