@@ -908,8 +908,12 @@ em { font-style: italic; }
 
 /* ─── GUEST GUIDE ─── */
 .guest-guide {
-  background: var(--sand);
+  background: var(--ink);
   padding-block: var(--space-2xl);
+}
+
+.guest-guide .section-title {
+  color: var(--white);
 }
 
 .guest-guide__inner {
@@ -923,7 +927,7 @@ em { font-style: italic; }
 }
 
 .guest-guide__lead {
-  color: var(--text-secondary);
+  color: rgb(250 250 247 / 0.6);
   font-size: 1.05rem;
   line-height: 1.75;
   margin-bottom: var(--space-lg);
@@ -943,26 +947,30 @@ em { font-style: italic; }
   align-items: flex-start;
   gap: 0.6em;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: rgb(250 250 247 / 0.8);
   line-height: 1.5;
+}
+
+.guest-guide__list .check {
+  color: var(--gold-light);
 }
 
 .guest-guide__muted {
   font-size: 0.82rem;
-  color: var(--text-secondary);
+  color: rgb(250 250 247 / 0.35);
   margin-bottom: var(--space-sm);
 }
 
 .guest-guide__link {
   font-size: 0.88rem;
-  color: var(--gold);
+  color: var(--gold-light);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: rgb(154 117 68 / 0.35);
+  text-decoration-color: rgb(196 151 90 / 0.35);
   text-underline-offset: 3px;
   transition: color 0.2s;
 }
-.guest-guide__link:hover { color: var(--gold-light); }
+.guest-guide__link:hover { color: var(--gold-glow); }
 
 .guest-guide__visual {
   display: flex;
@@ -974,9 +982,12 @@ em { font-style: italic; }
 .phone-mock {
   width: 240px;
   border-radius: 36px;
-  border: 6px solid var(--ink);
-  background: var(--ink);
-  box-shadow: 0 32px 80px rgb(13 13 11 / 0.22), 0 8px 24px rgb(13 13 11 / 0.14);
+  border: 6px solid rgb(250 250 247 / 0.1);
+  background: rgb(250 250 247 / 0.06);
+  box-shadow:
+    0 40px 80px rgb(0 0 0 / 0.55),
+    0 0 0 1px rgb(196 151 90 / 0.18),
+    0 8px 24px rgb(0 0 0 / 0.4);
   overflow: hidden;
 }
 
