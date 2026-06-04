@@ -3001,16 +3001,23 @@ em { font-style: italic; }
 
   .before-after__inner {
     grid-template-columns: 1fr;
-    gap: var(--space-md);
+    gap: 0;
   }
 
   .before-after__arrow {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: rgb(23 20 17 / 0.2);
+    padding: 1rem 0;
+    line-height: 1;
+    rotate: 90deg;
   }
 
   .before-after__headline {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
   }
 
   .before-after__col {
@@ -3027,6 +3034,7 @@ em { font-style: italic; }
 
   .guest-guide__inner {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
 
   .guest-guide__visual {

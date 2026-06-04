@@ -141,14 +141,13 @@
 
   if (primaCol && dopoCol) {
     const baTrigger = { trigger: '.before-after__inner', start: 'top 80%', once: true };
-    gsap.fromTo(primaCol,
-      { x: -60, opacity: 0 },
-      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: baTrigger }
-    );
-    gsap.fromTo(dopoCol,
-      { x: 60, opacity: 0 },
-      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: baTrigger }
-    );
+    if (isMobile) {
+      gsap.fromTo(primaCol, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: dur, ease, scrollTrigger: baTrigger });
+      gsap.fromTo(dopoCol,  { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: dur, ease, delay: 0.1, scrollTrigger: baTrigger });
+    } else {
+      gsap.fromTo(primaCol, { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: baTrigger });
+      gsap.fromTo(dopoCol,  { x: 60, opacity: 0 },  { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: baTrigger });
+    }
   }
 
   /* ─── How it works: SVG line draw ─── */
@@ -623,10 +622,9 @@
   const ggVisual = document.querySelector('.guest-guide__visual');
 
   if (ggText) {
-    gsap.fromTo(ggText,
-      { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: dur, ease, scrollTrigger: { trigger: '.guest-guide__inner', start: 'top 80%', once: true } }
-    );
+    const ggFrom = isMobile ? { y: 24, opacity: 0 } : { x: -50, opacity: 0 };
+    const ggTo   = isMobile ? { y: 0, opacity: 1 }  : { x: 0, opacity: 1 };
+    gsap.fromTo(ggText, ggFrom, { ...ggTo, duration: dur, ease, scrollTrigger: { trigger: '.guest-guide__inner', start: 'top 80%', once: true } });
   }
 
   if (ggVisual) {
