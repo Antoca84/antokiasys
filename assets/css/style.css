@@ -2654,7 +2654,7 @@ em { font-style: italic; }
 .hc-photo__before,
 .hc-photo__after {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 2 / 3;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
