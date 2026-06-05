@@ -481,17 +481,18 @@
     </div>
     <script>
       (function(){
-        var el = document.querySelector('.health-check__title');
         var fs = document.getElementById('hud-fs');
         var mw = document.getElementById('hud-mw');
         function init(){
+          var el = document.querySelector('.health-check__title');
+          if(!el) return;
           var size = Math.round(parseFloat(getComputedStyle(el).fontSize));
           fs.value = size;
           document.getElementById('hud-fs-val').textContent = size+'px';
           mw.value = 20;
+          fs.oninput = function(){ el.style.fontSize = this.value+'px'; document.getElementById('hud-fs-val').textContent = this.value+'px'; };
+          mw.oninput = function(){ el.style.maxWidth = this.value+'ch'; document.getElementById('hud-mw-val').textContent = this.value+'ch'; };
         }
-        fs.oninput = function(){ el.style.fontSize = this.value+'px'; document.getElementById('hud-fs-val').textContent = this.value+'px'; };
-        mw.oninput = function(){ el.style.maxWidth = this.value+'ch'; document.getElementById('hud-mw-val').textContent = this.value+'ch'; };
         if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
       })();
     </script>
