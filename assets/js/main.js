@@ -48,16 +48,20 @@
   navClose.addEventListener('click', closeMenu);
   overlayLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-  /* ─── Hero: entrata kinetica ─── */
-  const heroWords = gsap.utils.toArray('.hero__h1-word');
-  const heroTl = gsap.timeline({ delay: 0.12, defaults: { ease } });
-  heroTl
-    .from('.hero__eyebrow', { y: 16, opacity: 0, duration: 0.55 })
-    .from(heroWords, { y: 44, opacity: 0, duration: 0.6, stagger: 0.055 }, '-=0.25')
-    .from('.hero__lead', { y: 18, opacity: 0, duration: 0.55 }, '-=0.3')
-    .from('.hero__ctas', { y: 16, opacity: 0, duration: 0.55 }, '-=0.35')
-    .from('.hero__trust li', { y: 12, opacity: 0, duration: 0.45, stagger: 0.08 }, '-=0.35')
-    .from('.hp', { y: 34, opacity: 0, scale: 0.96, duration: 0.85 }, '-=0.75');
+  /* ─── Hero: entrata kinetica (pura timeline, no ScrollTrigger) ─── */
+  gsap.set(['.hero__eyebrow', '.hero__h1-word', '.hero__lead', '.hero__ctas', '.hero__trust li', '.hp'], { opacity: 0 });
+
+  window.addEventListener('load', function () {
+    const heroWords = gsap.utils.toArray('.hero__h1-word');
+    const heroTl = gsap.timeline({ delay: 0.2, defaults: { ease } });
+    heroTl
+      .fromTo('.hero__eyebrow', { opacity: 0, y: 20 },             { opacity: 1, y: 0, duration: 0.5 })
+      .fromTo(heroWords,        { opacity: 0, y: 30 },             { opacity: 1, y: 0, duration: 0.5, stagger: 0.05 }, '-=0.2')
+      .fromTo('.hero__lead',    { opacity: 0, y: 20 },             { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
+      .fromTo('.hero__ctas',    { opacity: 0, y: 20 },             { opacity: 1, y: 0, duration: 0.4 }, '-=0.3')
+      .fromTo('.hero__trust li',{ opacity: 0, y: 12 },             { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }, '-=0.3')
+      .fromTo('.hp',            { opacity: 0, y: 34, scale: 0.96 },{ opacity: 1, y: 0, scale: 1, duration: 0.85 }, '-=0.75');
+  });
 
   /* ─── Hero phone: caos → calma (loop) ─── */
   const hpNotifs   = gsap.utils.toArray('.hp-notif');
@@ -187,9 +191,9 @@
     { name: 'Chiara M.',     city: 'Genova',   text: 'Ho ospiti da tutto il mondo. Non parlo spagnolo, non parlo cinese. Adesso la guida è nella loro lingua e non ricevo più messaggi in lingue che non capisco alle undici di sera su WhatsApp.' },
     { name: 'Davide B.',     city: 'Catania',  text: 'A fine mese non dovevo più ricostruire quanto avevo guadagnato da zero. Ce l\'avevo già, in tempo reale. Piccola cosa, ma cambia come vivi il lavoro.' },
     { name: 'Marta V.',      city: 'Brescia',  text: 'Un ospite aveva avuto problemi con il riscaldamento e non me lo aveva detto. Lo scopro dalla recensione. Adesso se qualcosa non va il sistema me lo segnala. Quella recensione non si ripete.' },
-    { name: 'Filippo A.',    city: 'Modena',   text: 'Avevo paura che automatizzare le risposte rendesse tutto più freddo. Il contrario. Gli ospiti ricevono tutto prima ancora di chiederlo. L\'ultimo ha scritto che era la prima volta che capiva le istruzioni di una casa al primo tentativo.' },
-    { name: 'Simona T.',     city: 'Milano',   text: 'Ho una coppia di anziani olandesi che non apriva l\'app dopo la prenotazione. Adesso ricevono tutto su WhatsApp nella loro lingua. Mi hanno lasciato cinque stelle scrivendo che ero stata "sempre disponibile e chiara". Non ho scritto una parola in olandese in vita mia.' },
-    { name: 'Andrea C.',     city: 'Roma',     text: 'I miei ospiti spagnoli non controllavano Airbnb dopo aver prenotato. Classico. Adesso scrivo da Telegram come se mandassi un messaggio a un amico — e loro ricevono tutto in spagnolo sul loro WhatsApp. Per me è trasparente. Per loro sembra che parli la loro lingua.' }
+    { name: 'Filippo A.',    city: 'Modena',   text: 'Avevo paura che automatizzare le risposte rendesse tutto più freddo. Il contrario. Gli ospiti ricevono tutto prima ancora di chiederlo. L\'ultimo ha scritto che era la prima volta che capiva le istruzioni.' },
+    { name: 'Simona T.',     city: 'Milano',   text: 'Una coppia di anziani olandesi non apriva l\'app. Adesso ricevono tutto su WhatsApp nella loro lingua. Mi hanno lasciato cinque stelle scrivendo che ero "sempre disponibile e chiara". Non ho scritto una parola in olandese.' },
+    { name: 'Andrea C.',     city: 'Roma',     text: 'Gli ospiti spagnoli non controllavano Airbnb dopo la prenotazione. Adesso scrivo da Telegram e loro ricevono tutto in spagnolo su WhatsApp. Per me è trasparente. Per loro sembra che parli la loro lingua.' }
   ];
 
   const avatarMap = {
@@ -203,13 +207,13 @@
     'Filippo A.':    'assets/img/avatars/av5.webp',
     'Andrea C.':     'assets/img/avatars/av1.webp',
     'Sara M.':       'assets/img/avatars/av2.webp',
-    'Giulia F.':     'assets/img/avatars/av4.webp',
+    'Giulia F.':     'assets/img/avatars/av8.webp',
     'Francesca N.':  'assets/img/avatars/av6.webp',
     'Elena C.':      'assets/img/avatars/av2.webp',
-    'Valentina R.':  'assets/img/avatars/av4.webp',
+    'Valentina R.':  'assets/img/avatars/av7.webp',
     'Chiara M.':     'assets/img/avatars/av6.webp',
     'Marta V.':      'assets/img/avatars/av2.webp',
-    'Simona T.':     'assets/img/avatars/av4.webp'
+    'Simona T.':     'assets/img/avatars/av9.webp'
   };
 
   function pickRandom(arr, n) {
@@ -304,14 +308,13 @@
       if (entries[0].isIntersecting) {
         _flipDone = true;
         _flipObs.disconnect();
-        tCards.forEach(function(c) {
+        tCards.forEach(function(c, i) {
           var inner = c.querySelector('.testi-card-inner');
           if (!inner) return;
-          var delay = 700 + Math.round(Math.random() * 1300);
-          setTimeout(function() { inner.classList.add('is-flipped'); }, delay);
+          setTimeout(function() { inner.classList.add('is-flipped'); }, i * 150);
         });
       }
-    }, { threshold: 0.4 });
+    }, { threshold: 0, rootMargin: '0px 0px -35% 0px' });
     _flipObs.observe(tGrid);
 
     // mouse repulsion with per-card cage
@@ -642,6 +645,7 @@
 
   /* ─── Health check content ─── */
   revealOnScroll('.health-check__content > *', { stagger: 0.08, start: 'top 85%' });
+  revealOnScroll('.hc-report, .hc-photo', { stagger: 0.12, start: 'top 85%' });
 
   /* ─── Before/After reveal via clip-path ─── */
   const afterPanel = document.querySelector('.ba-panel--after');
