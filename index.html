@@ -470,6 +470,35 @@
     </section>
 
 
+    <!-- DEV HUD ratio — rimuovere dopo uso -->
+    <div id="ratio-hud" style="position:fixed;bottom:16px;right:16px;z-index:9999;background:#111;color:#fff;padding:14px 18px;border-radius:10px;font:13px/1.6 monospace;box-shadow:0 4px 24px rgba(0,0,0,0.7);min-width:240px">
+      <div style="margin-bottom:4px">PRIMA &nbsp;<b id="r-before-val">1 : 1</b></div>
+      <input type="range" min="40" max="150" step="5" value="100" id="r-before" style="width:100%;margin-bottom:10px">
+      <div style="margin-bottom:4px">DOPO &nbsp;<b id="r-after-val">3 : 2</b></div>
+      <input type="range" min="40" max="150" step="5" value="67" id="r-after" style="width:100%;margin-bottom:10px">
+      <button onclick="document.getElementById('ratio-hud').remove()" style="width:100%;background:#333;border:none;color:#fff;padding:5px;border-radius:5px;cursor:pointer">✕ chiudi</button>
+    </div>
+    <script>
+      (function(){
+        function frac(v){ var g=gcd(100,v); return (100/g)+' : '+(v/g); }
+        function gcd(a,b){ return b?gcd(b,a%b):a; }
+        function init(){
+          var before = document.querySelector('.hc-photo__before');
+          var after  = document.querySelector('.hc-photo__after');
+          if(!before||!after) return;
+          document.getElementById('r-before').oninput = function(){
+            before.style.aspectRatio = '100 / '+this.value;
+            document.getElementById('r-before-val').textContent = frac(+this.value);
+          };
+          document.getElementById('r-after').oninput = function(){
+            after.style.aspectRatio = '100 / '+this.value;
+            document.getElementById('r-after-val').textContent = frac(+this.value);
+          };
+        }
+        if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+      })();
+    </script>
+
     <!-- ═══ HEALTH CHECK ═══ -->
 
     <section class="health-check" id="health-check" aria-label="Health Check">
