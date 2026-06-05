@@ -98,11 +98,6 @@
             <a href="#pricing" class="btn btn--lg btn--ghost">Scopri i piani ↓</a>
           </div>
 
-          <ul class="hero__trust" role="list">
-            <li><span class="hero__trust-dot" aria-hidden="true"></span> 4 strutture attive</li>
-            <li>Nessun contratto</li>
-            <li>0 installazioni</li>
-          </ul>
         </div>
 
         <!-- Visual animato: caos → calma -->
@@ -474,6 +469,83 @@
       </div>
     </section>
 
+
+    <!-- ═══ HEALTH CHECK ═══ -->
+    <section class="health-check" id="health-check" aria-label="Health Check">
+      <div class="health-check__inner">
+
+        <div class="health-check__content">
+          <p class="section-kicker">HEALTH CHECK</p>
+          <h2 class="health-check__title">Curiamo il tuo Annuncio.</h2>
+          <p class="health-check__subtitle">Scopri esattamente perché non arrivano prenotazioni.</p>
+          <p class="health-check__lead">
+            Analizziamo il tuo annuncio, i 3 competitor che ti battono nella tua zona e la tua foto copertina. Entro 48 ore hai un report concreto e una foto migliorata con AI — pronta da caricare.
+          </p>
+
+          <ul class="health-check__list" role="list">
+            <li><span class="hc-icon" aria-hidden="true">→</span>Analisi dei 3 competitor che prenotano meglio di te (prezzo, foto, posizionamento)</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>I 3 motivi principali che bloccano le tue prenotazioni</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>Foto copertina migliorata con AI — inclusa nel prezzo, consegna in 48h</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>5 titoli ottimizzati pronti da copiare sull'annuncio</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>Diagnosi pricing: quanto stai lasciando sul tavolo rispetto al mercato</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>Action plan 1 pagina — cosa cambiare subito</li>
+          </ul>
+
+          <div class="health-check__pricing-block">
+            <div class="hc-price">
+              <span class="hc-price-amount">€149</span>
+              <span class="hc-price-note">una tantum</span>
+            </div>
+            <p class="hc-price-offer">I €149 si scalano dal setup se acquisti un piano entro 30 giorni.</p>
+          </div>
+
+          <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+            Prenota il tuo Health Check →
+          </a>
+        </div>
+
+        <div class="health-check__visual" aria-label="Report e foto copertina ottimizzata">
+
+          <!-- Report mock -->
+          <div class="hc-report">
+            <div class="hc-report__header">Health Check Report</div>
+            <div class="hc-report__issues">
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Foto copertina: bassa luminosità</span>
+              </div>
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Prezzo: 23% sopra la media competitor</span>
+              </div>
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Titolo: nessuna keyword ricercata</span>
+              </div>
+            </div>
+            <div class="hc-report__sep" role="separator"></div>
+            <div class="hc-report__row hc-report__row--ok">
+              <span class="hc-report__icon" aria-hidden="true">✓</span>
+              <span>Foto copertina ottimizzata allegata</span>
+            </div>
+          </div>
+
+          <!-- Photo before/after mock -->
+          <div class="hc-photo" aria-label="Foto copertina prima e dopo ottimizzazione AI">
+            <div class="hc-photo__before">
+              <span class="hc-photo__text">📷 foto originale</span>
+              <div class="hc-photo__label hc-photo__label--before" aria-label="Prima">PRIMA</div>
+            </div>
+            <div class="hc-photo__after">
+              <span class="hc-photo__text">✨ AI enhanced</span>
+              <div class="hc-photo__label hc-photo__label--after" aria-label="Dopo">DOPO</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
     <!-- ═══ PRICING ═══ -->
     <section class="pricing" id="pricing" aria-label="Piani e prezzi">
       <div class="section-inner">
@@ -496,7 +568,7 @@
             <p class="pricing-card__setup">€299 una tantum · 1 proprietà</p>
           </div>
           <ul class="pricing-card__bullets" role="list">
-            <li>Gli ospiti trovano tutto da soli — sito guida in 8 lingue con il codice prenotazione</li>
+            <li>Gli ospiti trovano tutto da soli — sito guida in 8 lingue con il codice prenotazione <span class="feat-badge">Signature</span></li>
             <li>WhatsApp automatico per ogni soggiorno: istruzioni, benvenuto, reminder checkout</li>
             <li>Tu ricevi solo le notifiche che contano — pagamenti, booking, recensioni su Telegram</li>
           </ul>
@@ -506,15 +578,15 @@
             </button>
             <div class="pricing-accordion__content" id="acc-solo" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li><span class="check" aria-hidden="true">✓</span> Notifiche Telegram intelligenti (pagamenti, booking, recensioni, silenzio sul resto)</li>
+                <li class="feat-highlight"><span class="check" aria-hidden="true">✓</span> <span>Sito guida ospiti dedicato — 8 lingue, link con codice prenotazione, accessibile senza app. L'ospite trova tutto prima ancora di chiederlo. <span class="feat-badge">Signature</span></span></li>
+                <li><span class="check" aria-hidden="true">✓</span> Notifiche Telegram intelligenti (pagamenti, booking, recensioni, cancellazioni, solo ciò che conta davvero.)</li>
                 <li><span class="check" aria-hidden="true">✓</span> Briefing mattutino automatico alle 07:00</li>
                 <li><span class="check" aria-hidden="true">✓</span> Sequenza WhatsApp 3 messaggi per ogni ospite (IT/EN)</li>
-                <li><span class="check" aria-hidden="true">✓</span> Sito guida ospiti in 8 lingue</li>
                 <li><span class="check" aria-hidden="true">✓</span> Setup con video guida</li>
               </ul>
             </div>
           </div>
-          <a href="#" class="btn btn--full btn--outline-dark">
+          <a href="https://buy.stripe.com/14A7sK5gygTl7WAatq1ZS05" class="btn btn--full btn--outline-dark" target="_blank" rel="noopener">
             Inizia con Solo →
           </a>
         </article>
@@ -529,12 +601,13 @@
               <span class="price-amount">€249</span>
               <span class="price-period">/mese</span>
             </div>
-            <p class="pricing-card__setup">€799 una tantum · fino a 5 proprietà</p>
+            <p class="pricing-card__setup">€799 una tantum · 3 proprietà, espandibile fino a 5</p>
           </div>
           <ul class="pricing-card__bullets" role="list">
-            <li>Sai se l'ospite è entrato, senza aprire niente — smart lock Nuki con alert in tempo reale</li>
+            <li>Ospiti stranieri? Scrivi in italiano su Telegram — loro ricevono nella loro lingua su WhatsApp. <span class="feat-badge">Signature</span></li>
             <li>Non lasci mai una recensione senza risposta — bozza AI, approvi con un tap su Telegram</li>
-            <li>Il team pulizie sa quando intervenire — notifica automatica dopo ogni checkout</li>
+            <li>Sai se l'ospite è entrato a qualunque ora con un messaggio sullo smartphone. Niente ricerca tra infinite email.</li>
+            <li>Il team di pulizie sa quando intervenire - notifica automatica eventi chiave</li>
           </ul>
           <div class="pricing-accordion">
             <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-pro">
@@ -542,17 +615,18 @@
             </button>
             <div class="pricing-accordion__content" id="acc-pro" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li><span class="check" aria-hidden="true">✓</span> Tutto di Solo</li>
-                <li><span class="check" aria-hidden="true">✓</span> Smart lock Nuki/TTLock — alert check-in/fallito</li>
+                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto di Solo incluso</li>
+                <li class="feat-highlight"><span class="check" aria-hidden="true">✓</span> <span>Risposte multilingua automatiche — scrivi in italiano su Telegram, il sistema traduce e invia nella lingua dell'ospite via WhatsApp <span class="feat-badge">Signature</span></span></li>
+                <li><span class="check" aria-hidden="true">✓</span> Briefing mattutino automatico <span class="feat-badge">Smart</span></li>
                 <li><span class="check" aria-hidden="true">✓</span> Risposta recensioni AI — approvi su Telegram, il sistema posta su Airbnb</li>
-                <li><span class="check" aria-hidden="true">✓</span> Verifica documenti Vikey — approvazione automatica</li>
+                <li><span class="check" aria-hidden="true">✓</span> Alert check-in da smartlock (disponibile solo su alcuni modelli)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Verifica documenti ospiti — approvazione automatica</li>
                 <li><span class="check" aria-hidden="true">✓</span> Monitor prezzi competitor con alert soglia</li>
-                <li><span class="check" aria-hidden="true">✓</span> Bot Telegram per ospiti — FAQ auto, escalation umana se necessario</li>
                 <li><span class="check" aria-hidden="true">✓</span> Audit onboarding 2h incluso nel setup</li>
               </ul>
             </div>
           </div>
-          <a href="#" class="btn btn--full btn--gold">
+          <a href="https://buy.stripe.com/dRmcN410igTlb8MfNK1ZS06" class="btn btn--full btn--gold" target="_blank" rel="noopener">
             Inizia con Pro →
           </a>
         </article>
@@ -566,7 +640,7 @@
               <span class="price-amount">€449</span>
               <span class="price-period">/mese</span>
             </div>
-            <p class="pricing-card__setup">€1.799 una tantum · proprietà illimitate</p>
+            <p class="pricing-card__setup">€1.799 una tantum · fino a 10 proprietà</p>
           </div>
           <ul class="pricing-card__bullets" role="list">
             <li>Un assistente AI ti dice come stanno andando le cose — a voce, in tempo reale</li>
@@ -579,7 +653,7 @@
             </button>
             <div class="pricing-accordion__content" id="acc-manager" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li><span class="check" aria-hidden="true">✓</span> Tutto di Pro</li>
+                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto di Pro incluso</li>
                 <li><span class="check" aria-hidden="true">✓</span> JARVIS — assistente AI vocale con dati live</li>
                 <li><span class="check" aria-hidden="true">✓</span> AI auto-risposta messaggi ospiti (in arrivo)</li>
                 <li><span class="check" aria-hidden="true">✓</span> Revenue dashboard multi-property</li>
@@ -593,147 +667,6 @@
             Inizia con Manager →
           </a>
         </article>
-
-      </div>
-    </section>
-
-    <!-- ═══ HEALTH CHECK ═══ -->
-    <section class="health-check" id="health-check" aria-label="Health Check">
-      <div class="health-check__inner">
-
-        <div class="health-check__content">
-          <p class="section-kicker section-kicker--light">Punto di partenza</p>
-          <h2 class="health-check__title">Prima di automatizzare — capisci cosa non funziona.</h2>
-          <p class="health-check__lead">
-            Un'analisi completa del tuo annuncio. Competitore, foto, titolo, descrizione, prezzo dinamico, risposta media. Tutto.
-          </p>
-
-          <ul class="health-check__list" role="list">
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Analisi posizionamento vs competitor locali
-            </li>
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Audit fotografie con simulazione AI
-            </li>
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Ottimizzazione titolo e descrizione
-            </li>
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Analisi pricing dinamico
-            </li>
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Review response time e qualità risposte
-            </li>
-            <li>
-              <span class="hc-icon" aria-hidden="true">→</span>
-              Report PDF con action plan prioritizzato
-            </li>
-          </ul>
-
-          <div class="health-check__pricing-block">
-            <div class="hc-price">
-              <span class="hc-price-amount">€149</span>
-              <span class="hc-price-note">una tantum</span>
-            </div>
-            <p class="hc-price-offer">Setup compreso nel piano se acquisti entro 30 giorni dal check.</p>
-          </div>
-
-          <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
-            Prenota il tuo Health Check →
-          </a>
-        </div>
-
-        <div class="health-check__visual" aria-label="Prima e dopo il sistema Antokia">
-          <div class="ba-container">
-            <!-- BEFORE: inbox caotica (CSS art) -->
-            <div class="ba-panel ba-panel--before" aria-label="Prima: inbox Airbnb caotica">
-              <div class="ba-panel__label">Prima</div>
-              <div class="inbox-mock">
-                <div class="inbox-header">
-                  <span class="inbox-dot red"></span>
-                  <span class="inbox-dot yellow"></span>
-                  <span class="inbox-dot green"></span>
-                  <span class="inbox-title">Airbnb Inbox</span>
-                  <span class="inbox-badge">23</span>
-                </div>
-                <div class="inbox-rows">
-                  <div class="inbox-row inbox-row--unread">
-                    <div class="inbox-avatar" style="background: #e07b5a;"></div>
-                    <div class="inbox-meta"><span>Ospite 1 — WiFi qual è la password?</span><small>5 min fa</small></div>
-                    <span class="inbox-dot-unread"></span>
-                  </div>
-                  <div class="inbox-row inbox-row--unread">
-                    <div class="inbox-avatar" style="background: #5a8ee0;"></div>
-                    <div class="inbox-meta"><span>Ospite 2 — A che ora è il check-out?</span><small>18 min fa</small></div>
-                    <span class="inbox-dot-unread"></span>
-                  </div>
-                  <div class="inbox-row">
-                    <div class="inbox-avatar" style="background: #6db88a;"></div>
-                    <div class="inbox-meta"><span>Ospite 3 — Dove si parcheggia?</span><small>1 ora fa</small></div>
-                  </div>
-                  <div class="inbox-row inbox-row--unread">
-                    <div class="inbox-avatar" style="background: #c0955a;"></div>
-                    <div class="inbox-meta"><span>Ospite 4 — Come si accende il riscaldamento</span><small>2 ore fa</small></div>
-                    <span class="inbox-dot-unread"></span>
-                  </div>
-                  <div class="inbox-row">
-                    <div class="inbox-avatar" style="background: #a05ab8;"></div>
-                    <div class="inbox-meta"><span>Ospite 5 — C'è lavatrice?</span><small>3 ore fa</small></div>
-                  </div>
-                  <div class="inbox-row inbox-row--unread">
-                    <div class="inbox-avatar" style="background: #e05a5a;"></div>
-                    <div class="inbox-meta"><span>Airbnb — Risposta richiesta entro 1h</span><small>4 ore fa</small></div>
-                    <span class="inbox-dot-unread" style="background: #e05a5a;"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- AFTER: dashboard pulita (CSS art) -->
-            <div class="ba-panel ba-panel--after" aria-label="Dopo: dashboard Antokia System">
-              <div class="ba-panel__label">Dopo</div>
-              <div class="dash-mock">
-                <div class="dash-header">
-                  <span class="dash-logo">Antokia System</span>
-                  <span class="dash-status"><span class="live-dot live-dot--small" aria-hidden="true"></span> Attivo</span>
-                </div>
-                <div class="dash-metrics">
-                  <div class="dash-metric">
-                    <span class="dash-metric-val">€1.240</span>
-                    <span class="dash-metric-label">questo mese</span>
-                  </div>
-                  <div class="dash-metric">
-                    <span class="dash-metric-val">98%</span>
-                    <span class="dash-metric-label">tasso risposta</span>
-                  </div>
-                  <div class="dash-metric">
-                    <span class="dash-metric-val">4.9★</span>
-                    <span class="dash-metric-label">rating medio</span>
-                  </div>
-                </div>
-                <div class="dash-tasks">
-                  <div class="dash-task dash-task--done">
-                    <span class="task-check">✓</span> Risposta automatica inviata a Ospite 1
-                  </div>
-                  <div class="dash-task dash-task--done">
-                    <span class="task-check">✓</span> Risposta automatica inviata a Ospite 2
-                  </div>
-                  <div class="dash-task dash-task--done">
-                    <span class="task-check">✓</span> Check-in confermato — domani 15:00
-                  </div>
-                  <div class="dash-task">
-                    <span class="task-pending">◎</span> Report settimanale in preparazione
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>
@@ -753,7 +686,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__content" id="faq-1" role="region" aria-hidden="true">
-            <p>Il setup completo richiede 48 ore dalla firma. Ti chiediamo accesso al tuo account Airbnb una volta sola, poi il sistema è operativo senza altri interventi da parte tua.</p>
+            <p>Il processo parte da un Questionario che ti inviamo per conoscere la tua struttura. Una volta ricevuto il questionario compilato e confermato che abbiamo tutto il necessario, il sistema è attivo entro 48 ore. Nessuna firma richiesta.</p>
           </div>
         </div>
 
@@ -763,7 +696,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__content" id="faq-2" role="region" aria-hidden="true">
-            <p>No. Non devi installare né configurare nulla. Tutto il setup tecnico è gestito dal nostro team. A te serve solo fornire le credenziali una volta, in modo sicuro.</p>
+            <p>Sul tuo account Airbnb non installi nulla. Per il piano Solo ricevi una video guida per configurare WhatsApp e il bot Telegram — è guidato passo passo, nessuna competenza tecnica richiesta. Dal piano Pro in poi il setup è interamente gestito dal nostro team: configuriamo WhatsApp, il bot Telegram e tutto il resto. A te serve fornire le credenziali una volta sola, in modo sicuro, e poi non tocchi più niente.</p>
           </div>
         </div>
 
@@ -773,7 +706,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__content" id="faq-3" role="region" aria-hidden="true">
-            <p>Sì. Il piano Solo copre 1 struttura, il piano Pro fino a 5, il piano Manager è illimitato. Se hai strutture su piattaforme diverse da Airbnb, contattaci per una soluzione personalizzata.</p>
+            <p>Sì, è proprio pensato per questo. Il piano Solo copre 1 struttura. Il piano Pro è ideale per 3 strutture, espandibile fino a 5. Il piano Manager gestisce fino a 10 proprietà — se hai un portfolio più grande, contattaci per un preventivo su misura.</p>
           </div>
         </div>
 
@@ -793,7 +726,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__content" id="faq-5" role="region" aria-hidden="true">
-            <p>No, non è obbligatorio. Ma è fortemente consigliato — ti dà un quadro chiaro di cosa ottimizzare prima di automatizzare. Bonus: se acquisti un piano entro 30 giorni dal check, il costo del setup è incluso.</p>
+            <p>No, non è obbligatorio. Ma è fortemente consigliato — ti dà un quadro chiaro di cosa ottimizzare prima di automatizzare. Bonus: se acquisti un piano entro 30 giorni dal check, i €149 si scalano dal costo del setup.</p>
           </div>
         </div>
 
@@ -803,7 +736,7 @@
             <span class="faq-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-item__content" id="faq-6" role="region" aria-hidden="true">
-            <p>Via WhatsApp e email, in tempo reale. Ricevi un avviso per ogni prenotazione, cancellazione, e messaggio che richiede la tua attenzione. Gli avvisi di routine (risposte automatiche inviate, check-in confermati) sono in digest giornaliero.</p>
+            <p>Tutto arriva su Telegram — prenotazioni, cancellazioni, pagamenti, alert check-in. Un'unica app, tutto in un posto, zero dispersione. WhatsApp è riservato alla comunicazione con gli ospiti.</p>
           </div>
         </div>
 
