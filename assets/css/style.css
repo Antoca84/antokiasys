@@ -2654,7 +2654,6 @@ em { font-style: italic; }
 .hc-photo__before,
 .hc-photo__after {
   position: relative;
-  aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -2663,12 +2662,14 @@ em { font-style: italic; }
 }
 
 .hc-photo__before {
+  aspect-ratio: 1 / 1;
   background: #2a2a2a;
   box-shadow: 0 4px 16px rgb(13 13 11 / 0.5);
 }
 
 .hc-photo__after {
-  background: linear-gradient(135deg, #c4975a 0%, #e8c98a 100%);
+  aspect-ratio: 3 / 2;
+  background: #1a1410;
   box-shadow: 0 8px 28px rgb(196 151 90 / 0.4);
 }
 
@@ -2676,14 +2677,14 @@ em { font-style: italic; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 0.38);
+  background: rgb(0 0 0 / 0.15);
 }
 
 .hc-photo__after::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(255 255 255 / 0.07);
+  background: rgb(0 0 0 / 0.04);
 }
 
 .hc-photo__img {
