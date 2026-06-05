@@ -2662,13 +2662,13 @@ em { font-style: italic; }
 }
 
 .hc-photo__before {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 10 / 7;
   background: #2a2a2a;
   box-shadow: 0 4px 16px rgb(13 13 11 / 0.5);
 }
 
 .hc-photo__after {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 20 / 13;
   background: #1a1410;
   box-shadow: 0 8px 28px rgb(196 151 90 / 0.4);
 }
