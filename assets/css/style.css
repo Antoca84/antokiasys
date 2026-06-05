@@ -2585,7 +2585,7 @@ em { font-style: italic; }
 /* Health Check visual: report + photo mocks */
 .health-check__visual {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 1rem;
   align-items: start;
 }
@@ -2654,7 +2654,7 @@ em { font-style: italic; }
 .hc-photo__before,
 .hc-photo__after {
   position: relative;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
