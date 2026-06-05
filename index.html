@@ -471,6 +471,31 @@
 
 
     <!-- ═══ HEALTH CHECK ═══ -->
+    <!-- DEV HUD — rimuovere dopo uso -->
+    <div id="dev-hud" style="position:fixed;bottom:16px;right:16px;z-index:9999;background:#111;color:#fff;padding:14px 16px;border-radius:10px;font:13px/1.5 monospace;box-shadow:0 4px 24px rgba(0,0,0,0.7);min-width:220px">
+      <div style="margin-bottom:6px">font-size: <b id="hud-fs-val">—</b></div>
+      <input type="range" min="20" max="90" step="1" id="hud-fs" style="width:100%;margin-bottom:10px">
+      <div style="margin-bottom:6px">max-width: <b id="hud-mw-val">auto</b></div>
+      <input type="range" min="8" max="30" step="1" id="hud-mw" style="width:100%;margin-bottom:10px">
+      <button onclick="document.getElementById('dev-hud').remove()" style="width:100%;background:#333;border:none;color:#fff;padding:5px;border-radius:5px;cursor:pointer">✕ chiudi</button>
+    </div>
+    <script>
+      (function(){
+        var el = document.querySelector('.health-check__title');
+        var fs = document.getElementById('hud-fs');
+        var mw = document.getElementById('hud-mw');
+        function init(){
+          var size = Math.round(parseFloat(getComputedStyle(el).fontSize));
+          fs.value = size;
+          document.getElementById('hud-fs-val').textContent = size+'px';
+          mw.value = 20;
+        }
+        fs.oninput = function(){ el.style.fontSize = this.value+'px'; document.getElementById('hud-fs-val').textContent = this.value+'px'; };
+        mw.oninput = function(){ el.style.maxWidth = this.value+'ch'; document.getElementById('hud-mw-val').textContent = this.value+'ch'; };
+        if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+      })();
+    </script>
+
     <section class="health-check" id="health-check" aria-label="Health Check">
       <div class="health-check__inner">
 
