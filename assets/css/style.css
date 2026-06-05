@@ -2948,9 +2948,14 @@ em { font-style: italic; }
 
 /* ─── Pricing accordion ─── */
 .pricing-card__question {
+  display: inline-block;
   font-size: 0.8rem;
-  color: var(--text-secondary);
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 0.2em 0.55em;
+  border-radius: 4px;
   margin-bottom: var(--space-sm);
   line-height: 1.45;
 }
