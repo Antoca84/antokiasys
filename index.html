@@ -93,9 +93,9 @@
 
           <div class="hero__ctas">
             <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
-              Inizia con il Check €149
+              Inizia dal Health Check — €149 →
             </a>
-            <a href="#pricing" class="btn btn--lg btn--ghost">Scopri i piani ↓</a>
+            <a href="#pricing" class="btn btn--ghost">Vedi i piani ↓</a>
           </div>
 
         </div>
@@ -325,13 +325,80 @@
     </section>
 
 
-    <!-- ═══ TESTIMONIALS ═══ -->
-    <section class="testimonials" aria-label="Cosa dicono gli host">
-      <div class="section-inner">
-        <p class="section-kicker">Chi lo usa</p>
-        <h2 class="section-title">Host reali.<br>Risultati reali.</h2>
+    <!-- ═══ HEALTH CHECK ═══ -->
+    <section class="health-check" id="health-check" aria-label="Health Check">
+      <div class="health-check__inner">
+
+        <div class="health-check__content">
+          <p class="section-kicker">IL PRIMO PASSO</p>
+          <h2 class="health-check__title">Scopri esattamente perché non arrivano prenotazioni.</h2>
+          <p class="health-check__lead">
+            Prima di automatizzare qualsiasi cosa, capiamo cosa non funziona nel tuo annuncio. In 48 ore hai un report concreto e una foto copertina migliorata con AI — pronta da caricare.
+          </p>
+          <span class="hc-badge">⏱ Consegna in 48h</span>
+
+          <ul class="health-check__list" role="list">
+            <li><span class="hc-icon" aria-hidden="true">→</span>Analisi dei 3 competitor che prenotano meglio di te (prezzo, foto, posizionamento)</li>
+            <li><span class="hc-icon" aria-hidden="true">→</span>I 3 motivi che bloccano le tue prenotazioni</li>
+            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>Foto copertina ottimizzata con AI — <strong>inclusa, pronta da caricare</strong></li>
+            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>5 titoli <strong>pronti da copiare</strong> sull'annuncio</li>
+            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>Diagnosi pricing: <strong>quanto stai lasciando sul tavolo rispetto al mercato</strong></li>
+          </ul>
+
+          <div class="health-check__pricing-block">
+            <div class="hc-price">
+              <span class="hc-price-amount">€149</span>
+              <span class="hc-price-note">€199 · lancio €149 · primi 5 clienti €99</span>
+            </div>
+            <p class="hc-price-offer">I €149 si scalano interamente dal setup di qualsiasi piano, se decidi di continuare entro 30 giorni.</p>
+          </div>
+
+          <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+            Prenota il tuo Health Check — €149 →
+          </a>
+        </div>
+
+        <div class="health-check__visual" aria-label="Report e foto copertina ottimizzata">
+
+          <!-- Report mock -->
+          <div class="hc-report">
+            <div class="hc-report__header">Health Check Report</div>
+            <div class="hc-report__issues">
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Foto copertina: bassa luminosità</span>
+              </div>
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Prezzo: 23% sopra la media competitor</span>
+              </div>
+              <div class="hc-report__row hc-report__row--warn">
+                <span class="hc-report__icon" aria-hidden="true">⚠</span>
+                <span>Titolo: nessuna keyword ricercata</span>
+              </div>
+            </div>
+            <div class="hc-report__sep" role="separator"></div>
+            <div class="hc-report__row hc-report__row--ok">
+              <span class="hc-report__icon" aria-hidden="true">✓</span>
+              <span>Foto copertina ottimizzata allegata</span>
+            </div>
+          </div>
+
+          <!-- Photo before/after mock -->
+          <div class="hc-photo" aria-label="Foto copertina prima e dopo ottimizzazione AI">
+            <div class="hc-photo__before">
+              <img src="assets/img/hc-before.png" alt="Foto originale" class="hc-photo__img">
+              <div class="hc-photo__label hc-photo__label--before" aria-label="Prima">PRIMA</div>
+            </div>
+            <div class="hc-photo__after">
+              <img src="assets/img/hc-after.png" alt="Foto ottimizzata AI" class="hc-photo__img">
+              <div class="hc-photo__label hc-photo__label--after" aria-label="Dopo">DOPO</div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-      <div class="testimonials__grid" id="testimonialsGrid" aria-live="polite"></div>
     </section>
 
     <!-- ═══ GUEST GUIDE ═══ -->
@@ -470,205 +537,162 @@
     </section>
 
 
-    <!-- ═══ HEALTH CHECK ═══ -->
-
-    <section class="health-check" id="health-check" aria-label="Health Check">
-      <div class="health-check__inner">
-
-        <div class="health-check__content">
-          <p class="section-kicker">HEALTH CHECK</p>
-          <h2 class="health-check__title">Scopri esattamente perché non arrivano prenotazioni.</h2>
-          <p class="health-check__subtitle">Curiamo il tuo Annuncio.</p>
-          <p class="health-check__lead">
-            Analizziamo annuncio, competitor e foto copertina.
-          </p>
-          <span class="hc-badge">⏱ Consegna in 48h</span>
-
-          <ul class="health-check__list" role="list">
-            <li><span class="hc-icon" aria-hidden="true">→</span>Analisi dei 3 competitor che prenotano meglio di te (prezzo, foto, posizionamento)</li>
-            <li><span class="hc-icon" aria-hidden="true">→</span>I 3 motivi che bloccano le tue prenotazioni</li>
-            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>Foto copertina ottimizzata con AI — <strong>inclusa, pronta da caricare</strong></li>
-            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>5 titoli <strong>pronti da copiare</strong> sull'annuncio</li>
-            <li class="hc-gem"><span class="hc-icon" aria-hidden="true">→</span>Diagnosi pricing: <strong>quanto stai lasciando sul tavolo rispetto al mercato</strong></li>
-          </ul>
-
-          <div class="health-check__pricing-block">
-            <div class="hc-price">
-              <span class="hc-price-amount">€149</span>
-              <span class="hc-price-note">una tantum</span>
-            </div>
-            <p class="hc-price-offer">I €149 si scalano dal setup se acquisti un piano entro 30 giorni.</p>
-          </div>
-
-          <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
-            Analizza il mio annuncio →
-          </a>
-        </div>
-
-        <div class="health-check__visual" aria-label="Report e foto copertina ottimizzata">
-
-          <!-- Report mock -->
-          <div class="hc-report">
-            <div class="hc-report__header">Health Check Report</div>
-            <div class="hc-report__issues">
-              <div class="hc-report__row hc-report__row--warn">
-                <span class="hc-report__icon" aria-hidden="true">⚠</span>
-                <span>Foto copertina: bassa luminosità</span>
-              </div>
-              <div class="hc-report__row hc-report__row--warn">
-                <span class="hc-report__icon" aria-hidden="true">⚠</span>
-                <span>Prezzo: 23% sopra la media competitor</span>
-              </div>
-              <div class="hc-report__row hc-report__row--warn">
-                <span class="hc-report__icon" aria-hidden="true">⚠</span>
-                <span>Titolo: nessuna keyword ricercata</span>
-              </div>
-            </div>
-            <div class="hc-report__sep" role="separator"></div>
-            <div class="hc-report__row hc-report__row--ok">
-              <span class="hc-report__icon" aria-hidden="true">✓</span>
-              <span>Foto copertina ottimizzata allegata</span>
-            </div>
-          </div>
-
-          <!-- Photo before/after mock -->
-          <div class="hc-photo" aria-label="Foto copertina prima e dopo ottimizzazione AI">
-            <div class="hc-photo__before">
-              <img src="assets/img/hc-before.png" alt="Foto originale" class="hc-photo__img">
-              <div class="hc-photo__label hc-photo__label--before" aria-label="Prima">PRIMA</div>
-            </div>
-            <div class="hc-photo__after">
-              <img src="assets/img/hc-after.png" alt="Foto ottimizzata AI" class="hc-photo__img">
-              <div class="hc-photo__label hc-photo__label--after" aria-label="Dopo">DOPO</div>
-            </div>
-          </div>
-
-        </div>
-
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="testimonials" aria-label="Cosa dicono gli host">
+      <div class="section-inner">
+        <p class="section-kicker">Chi lo usa</p>
+        <h2 class="section-title">Host reali.<br>Risultati reali.</h2>
       </div>
+      <div class="testimonials__grid" id="testimonialsGrid" aria-live="polite"></div>
     </section>
+
     <!-- ═══ PRICING ═══ -->
     <section class="pricing" id="pricing" aria-label="Piani e prezzi">
       <div class="section-inner">
-        <p class="section-kicker">Prezzi</p>
-        <h2 class="section-title">Scegli il piano. Poi non ci pensi più.</h2>
-        <p class="section-sub">Nessun contratto. Disdici quando vuoi.</p>
+        <p class="section-kicker">I PIANI</p>
+        <h2 class="section-title">Scegli il tuo percorso.</h2>
+        <p class="section-sub">Non sai da dove partire? Inizia dal Health Check qui sopra — in 48 ore sai esattamente quale piano fa per te.</p>
       </div>
 
       <div class="pricing__grid">
 
-        <!-- Solo -->
-        <article class="pricing-card" aria-label="Piano Solo">
-          <p class="pricing-card__question">Vuoi smettere di fare il segretario dei tuoi ospiti?</p>
+        <!-- Self Host -->
+        <article class="pricing-card" aria-label="Piano Self Host">
+          <p class="pricing-card__question">Vuoi gestire da solo, ma con metodo?</p>
           <div class="pricing-card__header">
-            <h3 class="pricing-card__name">Solo</h3>
+            <h3 class="pricing-card__name">Self Host</h3>
             <div class="pricing-card__price">
-              <span class="price-amount">€79</span>
-              <span class="price-period">/mese</span>
+              <span class="price-amount">€690</span>
+              <span class="price-period">una tantum</span>
             </div>
-            <p class="pricing-card__setup">€299 una tantum · 1 proprietà</p>
+            <p class="pricing-card__setup">Tutto quello che ti serve per gestire il tuo Airbnb senza co-host.</p>
           </div>
           <ul class="pricing-card__bullets" role="list">
-            <li>Gli ospiti trovano tutto da soli — sito guida in 8 lingue con il codice prenotazione <span class="feat-badge">Signature</span></li>
-            <li>WhatsApp automatico per ogni soggiorno: istruzioni, benvenuto, reminder checkout</li>
-            <li>Tu ricevi solo le notifiche che contano — pagamenti, booking, recensioni su Telegram</li>
+            <li>Sito guida ospiti multilingua (8 lingue) — i tuoi ospiti trovano tutto da soli</li>
+            <li>Configurazione messaggi automatici Airbnb prima, durante e dopo il soggiorno</li>
+            <li>Sistema completo pulizie: checklist + procedure operative per il tuo team</li>
           </ul>
           <div class="pricing-accordion">
-            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-solo">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-self">
               Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
             </button>
-            <div class="pricing-accordion__content" id="acc-solo" aria-hidden="true">
+            <div class="pricing-accordion__content" id="acc-self" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li class="feat-highlight"><span class="check" aria-hidden="true">✓</span> <span>Sito guida ospiti dedicato — 8 lingue, link con codice prenotazione, accessibile senza app. L'ospite trova tutto prima ancora di chiederlo. <span class="feat-badge">Signature</span></span></li>
-                <li><span class="check" aria-hidden="true">✓</span> Notifiche Telegram intelligenti (pagamenti, booking, recensioni, cancellazioni, solo ciò che conta davvero.)</li>
-                <li><span class="check" aria-hidden="true">✓</span> Briefing mattutino automatico alle 07:00</li>
-                <li><span class="check" aria-hidden="true">✓</span> Sequenza WhatsApp 3 messaggi per ogni ospite (IT/EN)</li>
-                <li><span class="check" aria-hidden="true">✓</span> Setup con video guida</li>
+                <li><span class="check" aria-hidden="true">✓</span> Guest Welcome Hub multilingua (il sito guida ospiti)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Configurazione messaggi automatici Airbnb</li>
+                <li><span class="check" aria-hidden="true">✓</span> Guida e processo self check-in / check-out</li>
+                <li><span class="check" aria-hidden="true">✓</span> Foglio monitoraggio prezzi competitor</li>
+                <li><span class="check" aria-hidden="true">✓</span> Checklist pulizie operativa</li>
+                <li><span class="check" aria-hidden="true">✓</span> SOP — procedura standard completa per il team</li>
+                <li class="feat-note">Lo fai tu, a mano. Quando vuoi che lo faccia il sistema, passi ad Auto Host — e quello che hai già pagato si scala.</li>
               </ul>
             </div>
           </div>
-          <a href="https://buy.stripe.com/14A7sK5gygTl7WAatq1ZS05" class="btn btn--full btn--outline-dark" target="_blank" rel="noopener">
-            Inizia con Solo →
+          <a href="#STRIPE_SELF_HOST" class="btn btn--full btn--outline-dark">
+            Acquista Self Host →
           </a>
         </article>
 
-        <!-- Pro (featured) -->
-        <article class="pricing-card pricing-card--featured" aria-label="Piano Pro, più scelto">
+        <!-- Auto Host (featured) -->
+        <article class="pricing-card pricing-card--featured" aria-label="Piano Auto Host, più scelto">
           <div class="pricing-card__badge" aria-label="Il più scelto">Più scelto</div>
           <p class="pricing-card__question">Vuoi che le operazioni girino senza di te?</p>
           <div class="pricing-card__header">
-            <h3 class="pricing-card__name">Pro</h3>
+            <h3 class="pricing-card__name">Auto Host</h3>
             <div class="pricing-card__price">
-              <span class="price-amount">€249</span>
+              <span class="price-amount">€129</span>
               <span class="price-period">/mese</span>
             </div>
-            <p class="pricing-card__setup">€799 una tantum · 3 proprietà, espandibile fino a 5</p>
+            <p class="pricing-card__setup">Setup €990 una tantum · riduci il tempo operativo fino all'80%</p>
           </div>
+          <p class="pricing-card__tagline">Ospiti stranieri? Scrivi in italiano su Telegram — loro ricevono nella loro lingua su WhatsApp.</p>
           <ul class="pricing-card__bullets" role="list">
-            <li>Ospiti stranieri? Scrivi in italiano su Telegram — loro ricevono nella loro lingua su WhatsApp. <span class="feat-badge">Signature</span></li>
-            <li>Non lasci mai una recensione senza risposta — bozza AI, approvi con un tap su Telegram</li>
-            <li>Sai se l'ospite è entrato a qualunque ora con un messaggio sullo smartphone. Niente ricerca tra infinite email.</li>
-            <li>Il team di pulizie sa quando intervenire - notifica automatica eventi chiave</li>
+            <li>Check-in e check-out automatici via Airbnb e WhatsApp — istruzioni inviate al momento giusto</li>
+            <li>Recupero automatico degli ospiti che non leggono i messaggi Airbnb</li>
+            <li>Briefing giornaliero + alert solo quando serve il tuo intervento</li>
           </ul>
           <div class="pricing-accordion">
-            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-pro">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-auto">
               Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
             </button>
-            <div class="pricing-accordion__content" id="acc-pro" aria-hidden="true">
+            <div class="pricing-accordion__content" id="acc-auto" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto di Solo incluso</li>
-                <li class="feat-highlight"><span class="check" aria-hidden="true">✓</span> <span>Risposte multilingua automatiche — scrivi in italiano su Telegram, il sistema traduce e invia nella lingua dell'ospite via WhatsApp <span class="feat-badge">Signature</span></span></li>
-                <li><span class="check" aria-hidden="true">✓</span> Briefing mattutino automatico <span class="feat-badge">Smart</span></li>
-                <li><span class="check" aria-hidden="true">✓</span> Risposta recensioni AI — approvi su Telegram, il sistema posta su Airbnb</li>
-                <li><span class="check" aria-hidden="true">✓</span> Alert check-in da smartlock (disponibile solo su alcuni modelli)</li>
-                <li><span class="check" aria-hidden="true">✓</span> Verifica documenti ospiti — approvazione automatica</li>
-                <li><span class="check" aria-hidden="true">✓</span> Monitor prezzi competitor con alert soglia</li>
-                <li><span class="check" aria-hidden="true">✓</span> Audit onboarding 2h incluso nel setup</li>
+                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto quello che è utile di Self Host, automatizzato</li>
+                <li><span class="check" aria-hidden="true">✓</span> Guest Welcome Hub multilingua incluso</li>
+                <li><span class="check" aria-hidden="true">✓</span> Check-in / check-out automatico (Airbnb + WhatsApp + link al sito guida)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Recupero ospiti che ignorano Airbnb (promemoria su altri canali)</li>
+                <li><span class="check" aria-hidden="true">✓</span> Traduzione automatica: scrivi in italiano sul bot Telegram, l'ospite riceve nella sua lingua</li>
+                <li><span class="check" aria-hidden="true">✓</span> Notifiche automatiche al team pulizie + conferma completamento</li>
+                <li><span class="check" aria-hidden="true">✓</span> Daily Operations Briefing ogni mattina</li>
+                <li><span class="check" aria-hidden="true">✓</span> Allerta automatica su situazioni urgenti</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI FAQ Assistant — risponde alle domande frequenti</li>
+                <li><span class="check" aria-hidden="true">✓</span> Setup personalizzato 1:1</li>
+                <li><span class="check" aria-hidden="true">✓</span> Manutenzione mensile: aggiornamenti, nuove funzioni, fix entro 24h</li>
               </ul>
             </div>
           </div>
-          <a href="https://buy.stripe.com/dRmcN410igTlb8MfNK1ZS06" class="btn btn--full btn--gold" target="_blank" rel="noopener">
-            Inizia con Pro →
-          </a>
+          <div class="pricing-card__cta-group">
+            <a href="#STRIPE_AUTO_HOST" class="btn btn--full btn--gold">
+              Acquista Auto Host →
+            </a>
+            <a href="https://calendly.com/venini59srl/30min" class="pricing-card__cta-alt" target="_blank" rel="noopener">
+              Hai dubbi? Prenota una call
+            </a>
+          </div>
         </article>
 
-        <!-- Manager -->
-        <article class="pricing-card" aria-label="Piano Manager">
-          <p class="pricing-card__question">Vuoi gestire un business, non una serie di appartamenti?</p>
+        <!-- AI Co-Host -->
+        <article class="pricing-card" aria-label="Piano AI Co-Host">
+          <div class="pricing-card__badge pricing-card__badge--limited" aria-label="Solo 2 posti Q1">Solo 2 posti Q1</div>
+          <p class="pricing-card__question">Vuoi espandere senza assumere?</p>
           <div class="pricing-card__header">
-            <h3 class="pricing-card__name">Manager</h3>
+            <h3 class="pricing-card__name">AI Co-Host</h3>
             <div class="pricing-card__price">
-              <span class="price-amount">€449</span>
+              <span class="price-amount">€490</span>
               <span class="price-period">/mese</span>
             </div>
-            <p class="pricing-card__setup">€1.799 una tantum · fino a 10 proprietà</p>
+            <p class="pricing-card__setup">Setup €4.980 · proprietà illimitate</p>
           </div>
           <ul class="pricing-card__bullets" role="list">
-            <li>Un assistente AI ti dice come stanno andando le cose — a voce, in tempo reale</li>
-            <li>I messaggi degli ospiti vengono gestiti automaticamente, escalation solo se necessario</li>
-            <li>Vedi RevPAR, occupancy e margini di tutte le proprietà in un colpo solo</li>
+            <li>Un co-host AI operativo 24/7 — gestisce ospiti, prenotazioni, pulizie e ricavi</li>
+            <li>Dashboard unificata di tutte le tue proprietà in un solo posto</li>
+            <li>Referente dedicato + revisione operativa trimestrale</li>
           </ul>
           <div class="pricing-accordion">
-            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-manager">
+            <button class="pricing-accordion__trigger" aria-expanded="false" aria-controls="acc-cohost">
               Cosa include esattamente <span class="pricing-accordion__icon" aria-hidden="true">↓</span>
             </button>
-            <div class="pricing-accordion__content" id="acc-manager" aria-hidden="true">
+            <div class="pricing-accordion__content" id="acc-cohost" aria-hidden="true">
               <ul class="pricing-card__features" role="list">
-                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto di Pro incluso</li>
-                <li><span class="check" aria-hidden="true">✓</span> JARVIS — assistente AI vocale con dati live</li>
-                <li><span class="check" aria-hidden="true">✓</span> AI auto-risposta messaggi ospiti (in arrivo)</li>
-                <li><span class="check" aria-hidden="true">✓</span> Revenue dashboard multi-property</li>
-                <li><span class="check" aria-hidden="true">✓</span> Profilo ospiti + blacklist automatica</li>
-                <li><span class="check" aria-hidden="true">✓</span> SLA supporto 4h su errori critici</li>
-                <li><span class="check" aria-hidden="true">✓</span> Review trimestrale KPI inclusa</li>
+                <li class="feat-from-solo"><span class="check" aria-hidden="true">✓</span> Tutto Auto Host, su proprietà illimitate</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI Guest Manager — gestisce conversazioni complete</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI Reservation Manager — prenotazioni, cancellazioni, occupazione</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI Cleaning Manager — coordina il team pulizie</li>
+                <li><span class="check" aria-hidden="true">✓</span> AI Revenue Manager — analizza prezzi competitor e suggerisce mosse</li>
+                <li><span class="check" aria-hidden="true">✓</span> JARVIS — assistente vocale operativo sui tuoi alloggi</li>
+                <li><span class="check" aria-hidden="true">✓</span> Risposta recensioni AI — approvi con un tap</li>
+                <li><span class="check" aria-hidden="true">✓</span> Verifica documenti ospiti automatica</li>
+                <li><span class="check" aria-hidden="true">✓</span> Dashboard multi-proprietà + KPI</li>
+                <li><span class="check" aria-hidden="true">✓</span> Report mensile automatico</li>
+                <li><span class="check" aria-hidden="true">✓</span> Workflow AI personalizzati</li>
+                <li><span class="check" aria-hidden="true">✓</span> SLA prioritario</li>
+                <li class="feat-note">Servizio enterprise su misura, posti limitati. Si parte sempre da una call di valutazione.</li>
               </ul>
             </div>
           </div>
-          <a href="#" class="btn btn--full btn--outline-dark">
-            Inizia con Manager →
+          <a href="https://calendly.com/venini59srl/30min" class="btn btn--full btn--outline-dark" target="_blank" rel="noopener">
+            Candidati per un posto →
           </a>
         </article>
 
+      </div>
+
+      <!-- Closer → riporta gli indecisi al Health Check -->
+      <div class="pricing__closer">
+        <p class="pricing__closer-text">Ancora indeciso? Parti dal Health Check. In 48 ore sai esattamente cosa ti serve — e i €149 si scalano dal piano che scegli.</p>
+        <a href="https://buy.stripe.com/9B6cN424m46z5Osatq1ZS04" class="btn btn--lg btn--gold" target="_blank" rel="noopener">
+          Inizia dal Health Check — €149 →
+        </a>
       </div>
     </section>
 
