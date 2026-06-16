@@ -2342,9 +2342,9 @@ em { font-style: italic; }
 
 /* Badge scarsità — ambra/rosso, distinto dal gold "Più scelto" */
 .pricing-card__badge--limited {
-  background: #C2410C;
+  background: #993C1D;
   color: #FFF;
-  box-shadow: 0 4px 14px rgb(194 65 12 / 0.35);
+  box-shadow: 0 4px 14px rgb(153 60 29 / 0.35);
 }
 
 /* Nota in coda all'accordion: corsivo, muted, senza check */
@@ -2619,8 +2619,23 @@ em { font-style: italic; }
 .hc-price {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   flex-shrink: 0;
+}
+
+.hc-price__row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.hc-price-old {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  opacity: 0.65;
 }
 
 .hc-price-amount {
