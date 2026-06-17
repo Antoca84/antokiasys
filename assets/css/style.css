@@ -2629,13 +2629,26 @@ em { font-style: italic; }
   gap: 0.5rem;
 }
 
+.hc-price-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0;
+}
+
+.hc-price-regular {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
 .hc-price-old {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 400;
   color: var(--text-secondary);
   text-decoration: line-through;
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .hc-price-amount {
