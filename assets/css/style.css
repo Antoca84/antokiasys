@@ -2340,6 +2340,69 @@ em { font-style: italic; }
   color: var(--text-secondary);
 }
 
+/* Badge scarsità — ambra/rosso, distinto dal gold "Più scelto" */
+.pricing-card__badge--limited {
+  background: #993C1D;
+  color: #FFF;
+  box-shadow: 0 4px 14px rgb(153 60 29 / 0.35);
+}
+
+/* Nota in coda all'accordion: corsivo, muted, senza check */
+.feat-note {
+  display: block !important;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.35rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgb(23 20 17 / 0.08);
+}
+
+/* Doppia CTA Auto Host */
+.pricing-card__cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pricing-card__cta-alt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.4em 1em;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s var(--easing);
+}
+.pricing-card__cta-alt:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* Closer pricing → riporta al Health Check */
+.pricing__closer {
+  max-width: 640px;
+  margin: var(--space-xl) auto 0;
+  padding-inline: var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.pricing__closer-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 .pricing-card__header {
   margin-bottom: var(--space-lg);
 }
@@ -2556,8 +2619,36 @@ em { font-style: italic; }
 .hc-price {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   flex-shrink: 0;
+}
+
+.hc-price__row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.hc-price-label {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0;
+}
+
+.hc-price-regular {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.hc-price-old {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  opacity: 0.6;
 }
 
 .hc-price-amount {
@@ -3203,7 +3294,7 @@ em { font-style: italic; }
 
   .pricing-card--featured {
     transform: scale(1);
-    order: 0;
+    order: -1;
   }
   .pricing-card--featured:hover {
     transform: translateY(-4px);
@@ -3221,66 +3312,8 @@ em { font-style: italic; }
   .nav__overlay { display: flex; }
 
   .testimonials__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding-inline: 12px;
+    grid-template-columns: 1fr;
   }
-  .testi-card {
-    min-width: 0;
-    box-shadow:
-      0 0 0 2px var(--white),
-      0 0 0 4px rgb(23 20 17 / 0.08),
-      0 4px 12px rgb(23 20 17 / 0.10);
-  }
-  .testi-card-inner {
-    transform: rotateY(0deg) !important;
-  }
-  /* Card verticale compatta su 2 colonne */
-  .testi-card__front {
-    flex-direction: column;
-    min-height: unset;
-  }
-  .testi-card__photo {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 0;
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
-  }
-  .testi-card__body {
-    flex: 1;
-    padding: 10px 10px 12px;
-    min-width: 0;
-  }
-  .testi-card__stars {
-    font-size: 0.65rem;
-    margin-bottom: 4px;
-  }
-  .testi-card__text {
-    font-size: 0.75rem;
-    line-height: 1.45;
-    margin-bottom: 8px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .testi-card__footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-  }
-  .testi-card__name { font-size: 0.78rem; }
-  .testi-card__city { font-size: 0.7rem; }
-  .testi-card__verified {
-    font-size: 0.68rem;
-    white-space: nowrap;
-    padding: 0.15em 0.5em;
-  }
-  /* Disabilita flip su touch */
-  .testi-card { pointer-events: none; }
 
   .before-after__inner {
     grid-template-columns: 1fr;
@@ -3349,8 +3382,8 @@ em { font-style: italic; }
   }
 
   .hero__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-lg); }
-  .hero__ctas { flex-direction: column; align-items: stretch; gap: var(--space-sm); }
-  .hero__ctas .btn { width: 100%; justify-content: center; text-align: center; white-space: normal; }
+  .hero__ctas { flex-direction: row; flex-wrap: wrap; }
+  .hero__ctas .btn { flex: 1; justify-content: center; min-width: 140px; }
 }
 
 @media (max-width: 480px) {

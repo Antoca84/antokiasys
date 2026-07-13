@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: #0c0e10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', 'Menlo', 'Consolas', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ops {
+  width: 100%;
+  max-width: 480px;
+  padding: 28px 32px;
+  color: #b8d4a8;
+  font-size: 12.5px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* ── Title box ── */
+.ops-title-box {
+  border: 1.5px solid rgba(184,212,168,0.3);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.ops-title-box::before {
+  content: '</>';
+  position: absolute;
+  top: -9px; right: 10px;
+  background: #0c0e10;
+  padding: 0 6px;
+  font-size: 10px;
+  color: rgba(184,212,168,0.4);
+}
+.ops-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #d4f0c0;
+  letter-spacing: 0.08em;
+}
+
+/* ── Chapter wrapper ── */
+.ops-chapter {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  margin-bottom: 18px;
+}
+
+/* ── Rows ── */
+.ops-row {
+  display: flex;
+  gap: 4px;
+  color: rgba(184,212,168,0.72);
+}
+.ops-key {
+  color: rgba(184,212,168,0.4);
+  flex-shrink: 0;
+  min-width: 110px;
+}
+.ops-val { color: #d4f0c0; }
+.ops-val.gold { color: #c9a96e; }
+.ops-val.green { color: #56d364; }
+.ops-val.red   { color: #f85149; }
+.ops-val.dim   { color: rgba(184,212,168,0.4); }
+
+/* Online indicator */
+.ops-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #56d364;
+  margin-left: 4px;
+  vertical-align: middle;
+  box-shadow: 0 0 6px #56d364;
+  animation: pulse 2s infinite;
+}
+
+/* Cursor blink */
+.ops-cursor {
+  display: inline-block;
+  width: 8px; height: 12px;
+  background: #b8d4a8;
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Section header */
+.ops-section-hdr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  color: #d4f0c0;
+}
+.ops-section-dot {
+  width: 9px; height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.ops-section-dot.g { background: #56d364; }
+.ops-section-dot.r { background: #f85149; }
+
+/* Entry rows */
+.ops-entry {
+  padding-left: 16px;
+  color: rgba(184,212,168,0.78);
+  font-size: 11.5px;
+}
+.ops-entry .ops-tag { color: #c9a96e; }
+.ops-entry .ops-mod { color: rgba(184,212,168,0.45); font-size: 10.5px; }
+
+/* Separator */
+.ops-sep {
+  border: none;
+  border-top: 1px solid rgba(184,212,168,0.1);
+  margin: 14px 0;
+}
+
+/* Total row */
+.ops-total {
+  color: rgba(184,212,168,0.5);
+  font-size: 11px;
+  margin-top: 6px;
+}
+.ops-total span { color: #d4f0c0; font-weight: bold; }
+
+/* Legend */
+.ops-legend {
+  font-size: 10.5px;
+  color: rgba(184,212,168,0.35);
+  margin-top: 4px;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50%     { opacity:0; }
+}
+@keyframes pulse {
+  0%,100% { opacity:1; }
+  50%     { opacity:0.45; }
+}
+</style>
+</head>
+<body>
+
+<div class="ops" id="ops">
+
+  <!-- Chapter 0: Title + Status -->
+  <div class="ops-title-box" id="ch0">
+    <div class="ops-title">AIRBNB OPS :: CRT CONSOLE // BUILD R7</div>
+  </div>
+
+  <!-- Chapter 1: System status -->
+  <div class="ops-chapter" id="ch1">
+    <div class="ops-row"><span class="ops-key">DATE........:</span><span class="ops-val">2026-06-19</span></div>
+    <div class="ops-row"><span class="ops-key">SYNC........:</span><span class="ops-val">19/06/2026 07:00</span></div>
+    <div class="ops-row">
+      <span class="ops-key">STATUS......:</span>
+      <span class="ops-val green">ONLINE<span class="ops-dot"></span></span>
+    </div>
+    <div class="ops-row"><span class="ops-key">PROMPT......:</span><span class="ops-val dim">root@ops:~$ <span class="ops-cursor"></span></span></div>
+    <div class="ops-row"><span class="ops-key">MOVEMENTS...:</span><span class="ops-val gold">3</span></div>
+  </div>
+
+  <hr class="ops-sep">
+
+  <!-- Chapter 2: Check-in board -->
+  <div class="ops-chapter" id="ch2">
+    <div class="ops-section-hdr">
+      <div class="ops-section-dot g"></div>
+      CHECK-IN BOARD
+    </div>
+    <div class="ops-entry">01 &gt;IN &nbsp;<span class="ops-tag">Asad</span> | Loft | A:4</div>
+    <div class="ops-entry ops-mod">&nbsp;&nbsp;&nbsp;&nbsp;&gt;MOD 3-&gt;4 ospiti (acc.2026-06-16)</div>
+    <div class="ops-entry">02 &gt;IN &nbsp;<span class="ops-tag">DIANA</span> | Bilo | A:3</div>
+    <div class="ops-total">TOTAL CHECK-IN....: <span>2</span></div>
+  </div>
+
+  <hr class="ops-sep">
+
+  <!-- Chapter 3: Check-out board + legend -->
+  <div class="ops-chapter" id="ch3">
+    <div class="ops-section-hdr">
+      <div class="ops-section-dot r"></div>
+      CHECK-OUT BOARD
+    </div>
+    <div class="ops-entry">01 &gt;OUT <span class="ops-tag">Renso</span> | Loft</div>
+    <div class="ops-total">TOTAL CHECK-OUT...: <span>1</span></div>
+    <div class="ops-sep" style="margin:12px 0 8px"></div>
+    <div class="ops-legend">LEGEND: A=Adults &nbsp;B=Bambini &nbsp;N=Neonati</div>
+    <div class="ops-legend">UI: CRT retro // static cursor <span style="color:#b8d4a8">■</span></div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var CHAPTERS = ['ch0','ch1','ch2','ch3'];
+  var DELAYS   = [0, 500, 1300, 2100];   // ms from start
+  var HOLD     = 3800;                    // how long all 3 stay visible
+  var FADE_OUT = 600;                     // fade-out duration
+  var PAUSE    = 800;                     // dark pause before restart
+
+  function show(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.opacity   = '1';
+    el.style.transform = 'translateY(0)';
+  }
+
+  function hide(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.transition = 'opacity ' + (FADE_OUT/1000) + 's ease';
+    el.style.opacity    = '0';
+  }
+
+  function reset(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.transition = 'none';
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(14px)';
+    // title box has different transform
+    if (id === 'ch0') el.style.transform = 'translateY(12px)';
+  }
+
+  var totalCycle = DELAYS[DELAYS.length-1] + HOLD + FADE_OUT + PAUSE;
+
+  function runCycle() {
+    // Reset all
+    CHAPTERS.forEach(reset);
+
+    // Show each chapter with stagger
+    CHAPTERS.forEach(function(id, i) {
+      setTimeout(function() { show(id); }, DELAYS[i]);
+    });
+
+    // After hold: fade out all
+    var holdStart = DELAYS[DELAYS.length-1] + HOLD;
+    setTimeout(function() {
+      CHAPTERS.forEach(hide);
+    }, holdStart);
+  }
+
+  // Initial run
+  runCycle();
+
+  // Loop
+  setInterval(runCycle, totalCycle);
+})();
+</script>
+
+</body>
+</html>
