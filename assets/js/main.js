@@ -207,13 +207,13 @@
     'Filippo A.':    'assets/img/avatars/av5.webp',
     'Andrea C.':     'assets/img/avatars/av1.webp',
     'Sara M.':       'assets/img/avatars/av2.webp',
-    'Giulia F.':     'assets/img/avatars/av8.webp',
+    'Giulia F.':     'assets/img/avatars/av4.webp',
     'Francesca N.':  'assets/img/avatars/av6.webp',
     'Elena C.':      'assets/img/avatars/av2.webp',
     'Valentina R.':  'assets/img/avatars/av7.webp',
     'Chiara M.':     'assets/img/avatars/av6.webp',
     'Marta V.':      'assets/img/avatars/av2.webp',
-    'Simona T.':     'assets/img/avatars/av9.webp'
+    'Simona T.':     'assets/img/avatars/av7.webp'
   };
 
   function pickRandom(arr, n) {
