@@ -645,7 +645,24 @@
 
   /* ─── Health check content ─── */
   revealOnScroll('.health-check__content > *', { stagger: 0.08, start: 'top 85%' });
-  revealOnScroll('.hc-report, .hc-photo', { stagger: 0.12, start: 'top 85%' });
+  revealOnScroll('.hc-report:not(.hc-report--float), .hc-photo', { stagger: 0.12, start: 'top 85%' });
+
+  /* Floating HC report: opacity-only reveal — GSAP must not touch transform,
+     it's positioned/centered via translate(-50%, ...) set in CSS/hc-tweaks JS */
+  const hcFloatReport = document.querySelector('.hc-report--float');
+  if (hcFloatReport) {
+    const hcTargetOpacity = parseFloat(getComputedStyle(hcFloatReport).opacity) || 1;
+    gsap.fromTo(hcFloatReport,
+      { opacity: 0 },
+      {
+        opacity: hcTargetOpacity,
+        duration: dur,
+        ease,
+        delay: 0.24,
+        scrollTrigger: { trigger: hcFloatReport, start: 'top 85%', once: true }
+      }
+    );
+  }
 
   /* ─── Before/After reveal via clip-path ─── */
   const afterPanel = document.querySelector('.ba-panel--after');
