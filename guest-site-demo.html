@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+html, body {
+  margin: 0; padding: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   PHONE SCREEN — GUEST GUIDE v3
+   Combina fluidità + contenuti completi
+═══════════════════════════════════════════ */
+.gg2 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #1b1713;
+  color: #f0ebe3;
+  overflow: hidden;
+  font-family: -apple-system, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Status bar ── */
+.gg2-sb {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  pointer-events: none;
+}
+
+/* ── Header: nome + lingua pills ── */
+.gg2-header {
+  position: relative;
+  z-index: 30;
+  padding: 36px 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.gg2-prop-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  font-weight: 500;
+  color: #f0ebe3;
+  line-height: 1;
+}
+.gg2-lang-pills {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.gg2-lpill-sm {
+  height: 21px;
+  min-width: 24px;
+  padding: 0 7px;
+  border-radius: 11px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240,235,227,0.08);
+  color: rgba(240,235,227,0.45);
+  border: 1px solid rgba(240,235,227,0.1);
+  transition: background 0.35s, color 0.35s, border-color 0.35s;
+}
+.gg2-lpill-sm.active {
+  background: #c9a96e;
+  color: #1b1713;
+  border-color: #c9a96e;
+}
+
+/* ── Tab bar ── */
+.gg2-tabs {
+  display: flex;
+  padding: 9px 14px 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 30;
+  border-bottom: 1px solid rgba(240,235,227,0.07);
+}
+.gg2-tab {
+  flex: 1;
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(240,235,227,0.3);
+  padding: 5px 0 9px;
+  position: relative;
+  letter-spacing: 0.015em;
+  transition: color 0.3s;
+}
+.gg2-tab.active { color: #f0ebe3; }
+
+.gg2-tab-ink {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background: #c9a96e;
+  border-radius: 2px 2px 0 0;
+  transition: left 0.38s cubic-bezier(0.4,0,0.2,1),
+              width 0.38s cubic-bezier(0.4,0,0.2,1);
+  will-change: left, width;
+}
+
+/* ── Hero image ── */
+.gg2-hero {
+  position: relative;
+  height: 145px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.gg2-hero-bg {
+  position: absolute;
+  inset: -8px;
+  background:
+    url('assets/img/hero/loft-milano-hero.png') center / cover no-repeat,
+    linear-gradient(145deg, #a07856 0%, #5a3d22 50%, #2a1a0a 100%);
+  transform: scale(1.08);
+  transition: transform 16s ease-out;
+}
+.gg2-hero-bg.zoomed { transform: scale(1.0); }
+.gg2-hero-grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(27,23,19,0.12) 0%,
+    rgba(27,23,19,0.55) 65%,
+    rgba(27,23,19,0.95) 100%
+  );
+}
+.gg2-hero-label {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.45);
+  opacity: 0;
+}
+
+/* ── Tab panels ── */
+.gg2-body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+.gg2-panel {
+  position: absolute;
+  inset: 0;
+  padding: 13px 13px 16px;
+  opacity: 0;
+  overflow: hidden;
+}
+.gg2-panel.is-active { opacity: 1; }
+
+/* ── Section label ── */
+.gg2-sec-label {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.3);
+  margin-bottom: 10px;
+}
+
+/* ── Card base ── */
+.gg2-card {
+  background: #252019;
+  border: 1px solid rgba(240,235,227,0.06);
+  border-radius: 14px;
+  padding: 13px 14px 14px;
+  margin-bottom: 8px;
+}
+
+/* ── ACCESS content ── */
+.acc-code-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.acc-code-lbl {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.32);
+  margin-bottom: 4px;
+}
+.acc-code-val {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #c9a96e;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  opacity: 0;
+  white-space: nowrap;
+}
+.acc-copy-btn {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  background: rgba(201,169,110,0.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.acc-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(240,235,227,0.06);
+  border: 1px solid rgba(240,235,227,0.09);
+  border-radius: 20px;
+  padding: 4px 10px 4px 8px;
+  font-size: 9.5px;
+  color: rgba(240,235,227,0.6);
+  margin-bottom: 11px;
+  opacity: 0;
+}
+/* ── Photo steps strip ── */
+.acc-photos {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+.acc-pcard {
+  flex: 1;
+  border-radius: 9px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  min-width: 0;
+}
+.acc-pimg {
+  width: 100%;
+  height: 58px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acc-pimg--1 {
+  background: linear-gradient(160deg, #3d3020 0%, #1e1610 60%, #140e08 100%);
+}
+.acc-pimg--2 {
+  background: linear-gradient(160deg, #243040 0%, #141e2a 60%, #0e1418 100%);
+}
+.acc-pimg--3 {
+  background: linear-gradient(160deg, #3a1f18 0%, #221510 60%, #160d08 100%);
+}
+.acc-pbadge {
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #1b1713;
+  font-size: 7.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+.acc-pcap {
+  background: #2a2118;
+  padding: 5px 6px 6px;
+  font-size: 8px;
+  color: rgba(240,235,227,0.52);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* ── WIFI content ── */
+.wifi-row { margin-bottom: 0; }
+.wifi-row + .wifi-row { margin-top: 13px; }
+.wifi-lbl {
+  font-size: 8px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240,235,227,0.32);
+  margin-bottom: 4px;
+}
+.wifi-val {
+  font-size: 13.5px; font-weight: 500;
+  color: #f0ebe3;
+  letter-spacing: 0.01em;
+  opacity: 0;
+}
+.wifi-pw {
+  font-size: 13.5px; font-weight: 500;
+  color: #c9a96e;
+  letter-spacing: 0.08em;
+  filter: blur(5px);
+  transition: filter 0.7s ease;
+  opacity: 0;
+}
+.wifi-pw.show { filter: blur(0); }
+.wifi-hint {
+  margin-top: 11px;
+  display: flex; align-items: center; gap: 5px;
+  font-size: 8.5px; color: rgba(240,235,227,0.28);
+  opacity: 0;
+}
+.wifi-qr-card {
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0;
+}
+.wifi-qr-box {
+  width: 52px; height: 52px;
+  border-radius: 9px;
+  background: rgba(240,235,227,0.05);
+  border: 1px solid rgba(240,235,227,0.08);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wifi-qr-copy {
+  font-size: 9.5px;
+  color: rgba(240,235,227,0.5);
+  line-height: 1.55;
+}
+
+/* ── CHECKOUT content ── */
+.co-time {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 46px;
+  font-weight: 500;
+  color: #f0ebe3;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  opacity: 0;
+}
+.co-sublabel {
+  font-size: 9px;
+  color: rgba(240,235,227,0.38);
+  margin-top: 3px;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+  opacity: 0;
+}
+.co-items {
+  display: flex; flex-direction: column; gap: 7px;
+}
+.co-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.co-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #c9a96e;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.co-txt {
+  font-size: 10px;
+  color: rgba(240,235,227,0.65);
+  line-height: 1.45;
+}
+</style>
+</head>
+<body>
+
+<div class="guest-guide__visual">
+  <div class="gg-phone" id="gg-phone">
+    <div class="gg-phone__screen">
+      <div class="gg-island" id="gg-island"></div>
+
+      <div class="gg2" id="gg2">
+
+        <!-- Status Bar -->
+        <div class="gg2-sb">
+          <span>9:41</span>
+          <div style="display:flex;align-items:center;gap:5px">
+            <svg width="15" height="11" fill="none" viewBox="0 0 15 11">
+              <rect x="0" y="5" width="2.5" height="6" rx="1" fill="white" opacity=".35"/>
+              <rect x="4" y="3" width="2.5" height="8" rx="1" fill="white" opacity=".55"/>
+              <rect x="8" y="1" width="2.5" height="10" rx="1" fill="white" opacity=".8"/>
+              <rect x="12" y="0" width="2.5" height="11" rx="1" fill="white"/>
+            </svg>
+            <svg width="16" height="11" viewBox="0 0 24 12" fill="none">
+              <rect x="0" y="1" width="20" height="10" rx="2.5" stroke="white" stroke-opacity=".6" stroke-width="1.2"/>
+              <rect x="1.5" y="2.5" width="13" height="7" rx="1.5" fill="white" opacity=".75"/>
+              <path d="M21.5 4.5v3c.9-.3 1.4-.9 1.4-1.5s-.5-1.2-1.4-1.5z" fill="white" opacity=".5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Header -->
+        <div class="gg2-header" id="gg2-header">
+          <div class="gg2-prop-name">Loft Milano</div>
+          <div class="gg2-lang-pills">
+            <div class="gg2-lpill-sm" id="lp-it">IT</div>
+            <div class="gg2-lpill-sm" id="lp-en">EN</div>
+            <div class="gg2-lpill-sm" id="lp-fr">FR</div>
+            <div class="gg2-lpill-sm" id="lp-de">DE</div>
+            <div class="gg2-lpill-sm" style="opacity:0.4">+4</div>
+          </div>
+        </div>
+
+        <!-- Tab bar -->
+        <div class="gg2-tabs" id="gg2-tabs">
+          <div class="gg2-tab active" id="gtab-accesso">Accesso</div>
+          <div class="gg2-tab" id="gtab-wifi">WiFi</div>
+          <div class="gg2-tab" id="gtab-checkout">Check-out</div>
+          <div class="gg2-tab-ink" id="gg2-ink"></div>
+        </div>
+
+        <!-- Hero -->
+        <div class="gg2-hero">
+          <div class="gg2-hero-bg" id="gg2-bg"></div>
+          <div class="gg2-hero-grad"></div>
+          <div class="gg2-hero-label" id="gg2-hero-label">Accesso appartamento</div>
+        </div>
+
+        <!-- Panels -->
+        <div class="gg2-body">
+
+          <!-- ACCESSO -->
+          <div class="gg2-panel is-active" id="panel-accesso">
+            <div class="gg2-card" id="acc-card" style="opacity:0;transform:translateY(14px)">
+              <div class="acc-code-row">
+                <div>
+                  <div class="acc-code-lbl">Codice cassetta</div>
+                  <div class="acc-code-val" id="acc-code">4829</div>
+                </div>
+                <div class="acc-copy-btn">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="acc-loc" id="acc-loc">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="10" r="3"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                3° piano · Scala B
+              </div>
+              <div class="acc-photos">
+
+                <div class="acc-pcard" id="acc-p1">
+                  <div class="acc-pimg acc-pimg--1">
+                    <div class="acc-pbadge">1</div>
+                    <!-- Citofono SVG -->
+                    <svg width="28" height="38" viewBox="0 0 28 38" fill="none" opacity="0.55">
+                      <rect x="4" y="2" width="20" height="34" rx="3" stroke="#c9a96e" stroke-width="1.2"/>
+                      <rect x="8" y="6" width="12" height="8" rx="1.5" fill="rgba(201,169,110,0.2)" stroke="#c9a96e" stroke-width="0.8"/>
+                      <circle cx="14" cy="24" r="3.5" stroke="#c9a96e" stroke-width="1"/>
+                      <circle cx="14" cy="24" r="1.2" fill="#c9a96e"/>
+                      <line x1="9" y1="31" x2="19" y2="31" stroke="#c9a96e" stroke-width="0.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="acc-pcap">Citofono<br>"Rossi"</div>
+                </div>
+
+                <div class="acc-pcard" id="acc-p2">
+                  <div class="acc-pimg acc-pimg--2">
+                    <div class="acc-pbadge">2</div>
+                    <!-- Scala SVG -->
+                    <svg width="38" height="36" viewBox="0 0 38 36" fill="none" opacity="0.5">
+                      <path d="M4 32 L4 22 L12 22 L12 14 L20 14 L20 8 L28 8 L28 2" stroke="#c9a96e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M4 32 L34 32" stroke="rgba(201,169,110,0.35)" stroke-width="1"/>
+                      <rect x="28" y="2" width="6" height="6" rx="1" fill="rgba(201,169,110,0.2)"/>
+                    </svg>
+                  </div>
+                  <div class="acc-pcap">Scala B<br>3° piano</div>
+                </div>
+
+                <div class="acc-pcard" id="acc-p3">
+                  <div class="acc-pimg acc-pimg--3">
+                    <div class="acc-pbadge">3</div>
+                    <!-- Porta SVG -->
+                    <svg width="28" height="40" viewBox="0 0 28 40" fill="none" opacity="0.6">
+                      <rect x="3" y="2" width="22" height="36" rx="2" fill="rgba(180,50,40,0.25)" stroke="#c9856e" stroke-width="1.2"/>
+                      <rect x="6" y="5" width="7" height="10" rx="1" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.3)" stroke-width="0.7"/>
+                      <rect x="15" y="5" width="7" height="10" rx="1" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.3)" stroke-width="0.7"/>
+                      <rect x="6" y="19" width="7" height="14" rx="1" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.3)" stroke-width="0.7"/>
+                      <rect x="15" y="19" width="7" height="14" rx="1" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.3)" stroke-width="0.7"/>
+                      <circle cx="20.5" cy="21" r="1.8" fill="#c9a96e"/>
+                    </svg>
+                  </div>
+                  <div class="acc-pcap">Porta rossa<br>destra</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- WIFI -->
+          <div class="gg2-panel" id="panel-wifi">
+            <div class="gg2-card" id="wifi-card" style="opacity:0;transform:translateY(14px)">
+              <div class="wifi-row">
+                <div class="wifi-lbl">Rete</div>
+                <div class="wifi-val" id="wifi-ssid">Loft_Milano_5G</div>
+              </div>
+              <div class="wifi-row">
+                <div class="wifi-lbl">Password</div>
+                <div class="wifi-pw" id="wifi-pw">AntokiaMi·2024!</div>
+              </div>
+              <div class="wifi-hint" id="wifi-hint">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M2 12S5 5 12 5s10 7 10 7-3 7-10 7S2 12 2 12z"/></svg>
+                Tocca per mostrare la password
+              </div>
+            </div>
+            <div class="gg2-card wifi-qr-card" id="wifi-qr">
+              <div class="wifi-qr-box">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#c9a96e" stroke-width="1.8" stroke-linecap="square">
+                  <rect x="3" y="3" width="8" height="8"/><rect x="17" y="3" width="8" height="8"/>
+                  <rect x="3" y="17" width="8" height="8"/>
+                  <rect x="5" y="5" width="4" height="4" fill="#c9a96e" stroke="none"/>
+                  <rect x="19" y="5" width="4" height="4" fill="#c9a96e" stroke="none"/>
+                  <rect x="5" y="19" width="4" height="4" fill="#c9a96e" stroke="none"/>
+                  <rect x="17" y="17" width="3" height="3" fill="#c9a96e" stroke="none"/>
+                  <rect x="22" y="17" width="3" height="3" fill="#c9a96e" stroke="none"/>
+                  <rect x="17" y="22" width="3" height="3" fill="#c9a96e" stroke="none"/>
+                  <rect x="22" y="22" width="3" height="3" fill="#c9a96e" stroke="none"/>
+                </svg>
+              </div>
+              <div class="wifi-qr-copy">
+                <div style="font-size:10px;color:rgba(240,235,227,0.72);margin-bottom:3px;font-weight:500">Connetti con QR</div>
+                <div style="font-size:8.5px;color:rgba(240,235,227,0.32);line-height:1.5">Scansiona con la fotocamera<br>per connetterti automaticamente</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHECKOUT -->
+          <div class="gg2-panel" id="panel-checkout">
+            <div class="gg2-card">
+              <div class="co-time" id="co-time">11:00</div>
+              <div class="co-sublabel" id="co-sub">Orario massimo di partenza</div>
+              <div class="co-items">
+                <div class="co-item" id="co-i1">
+                  <div class="co-dot"></div>
+                  <div class="co-txt">Lascia le chiavi sul tavolo della cucina</div>
+                </div>
+                <div class="co-item" id="co-i2">
+                  <div class="co-dot"></div>
+                  <div class="co-txt">Chiudi tutte le finestre</div>
+                </div>
+                <div class="co-item" id="co-i3">
+                  <div class="co-dot"></div>
+                  <div class="co-txt">Spegni luci e climatizzatore</div>
+                </div>
+                <div class="co-item" id="co-i4">
+                  <div class="co-dot"></div>
+                  <div class="co-txt">Rifiuti nel bidone nel cortile</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /gg2-body -->
+      </div><!-- /gg2 -->
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  const TABS = ['accesso', 'wifi', 'checkout'];
+  const LANGS = ['it', 'en', 'fr', 'de'];
+  let currentTab = 'accesso';
+
+  /* ── Posiziona l'ink indicator ── */
+  function positionInk(tabId, animate) {
+    const ink   = $('gg2-ink');
+    const tab   = $('gtab-' + tabId);
+    const tabs  = $('gg2-tabs');
+    if (!ink || !tab || !tabs) return;
+    const tRect = tab.getBoundingClientRect();
+    const pRect = tabs.getBoundingClientRect();
+    const left  = tRect.left - pRect.left;
+    const w     = tRect.width;
+    if (animate) {
+      gsap.to(ink, { left, width: w, duration: 0.38, ease: 'power2.inOut' });
+    } else {
+      gsap.set(ink, { left, width: w });
+    }
+  }
+
+  /* ── Cambia lingua attiva ── */
+  function setLang(code) {
+    LANGS.forEach(l => {
+      const el = $('lp-' + l);
+      if (el) el.classList.toggle('active', l === code);
+    });
+  }
+
+  /* ── Switch tab con slide animation ── */
+  function switchTab(toTab) {
+    if (toTab === currentTab) return;
+
+    const fromIdx = TABS.indexOf(currentTab);
+    const toIdx   = TABS.indexOf(toTab);
+    const dir     = toIdx > fromIdx ? 1 : -1;
+
+    // Tab label
+    TABS.forEach(t => {
+      const el = $('gtab-' + t);
+      if (el) el.classList.toggle('active', t === toTab);
+    });
+    positionInk(toTab, true);
+
+    // Hero label
+    const heroLabel = $('gg2-hero-label');
+    if (heroLabel) {
+      const labels = { accesso: 'Accesso appartamento', wifi: 'Connessione WiFi', checkout: 'Check-out' };
+      gsap.to(heroLabel, { opacity: 0, duration: 0.2, onComplete: () => {
+        heroLabel.textContent = labels[toTab] || '';
+        gsap.to(heroLabel, { opacity: 1, duration: 0.3 });
+      }});
+    }
+
+    // Panels
+    const fromPanel = $('panel-' + currentTab);
+    const toPanel   = $('panel-' + toTab);
+
+    if (fromPanel) {
+      gsap.to(fromPanel, {
+        xPercent: -dir * 55,
+        opacity: 0,
+        duration: 0.32,
+        ease: 'power2.in',
+        onComplete: () => fromPanel.classList.remove('is-active')
+      });
+    }
+    if (toPanel) {
+      toPanel.classList.add('is-active');
+      gsap.fromTo(toPanel,
+        { xPercent: dir * 100, opacity: 0 },
+        { xPercent: 0, opacity: 1, duration: 0.40, ease: 'power2.out' }
+      );
+    }
+
+    currentTab = toTab;
+  }
+
+  /* ── Reset completo ── */
+  function resetAll() {
+    gsap.set('#gg2', { opacity: 1 });
+    gsap.set('#gg2-header', { opacity: 0, y: -6 });
+
+    // Hero
+    const bg = $('gg2-bg');
+    if (bg) bg.classList.remove('zoomed');
+    gsap.set('#gg2-hero-label', { opacity: 0 });
+
+    // Panels
+    TABS.forEach(t => {
+      const p = $('panel-' + t);
+      if (p) {
+        gsap.set(p, { opacity: 0, xPercent: 0 });
+        p.classList.remove('is-active');
+      }
+    });
+    const accP = $('panel-accesso');
+    if (accP) accP.classList.add('is-active');
+
+    // Tab state
+    currentTab = 'accesso';
+    TABS.forEach(t => {
+      const el = $('gtab-' + t);
+      if (el) el.classList.toggle('active', t === 'accesso');
+    });
+    positionInk('accesso', false);
+
+    // Accesso content
+    gsap.set('#acc-card',  { opacity: 0, y: 14 });
+    gsap.set('#acc-code',  { opacity: 0 });
+    gsap.set('#acc-loc',   { opacity: 0 });
+    gsap.set(['#acc-p1','#acc-p2','#acc-p3'], { opacity: 0, y: 10 });
+
+    // WiFi content
+    gsap.set('#wifi-card', { opacity: 0, y: 14 });
+    gsap.set(['#wifi-ssid','#wifi-hint'], { opacity: 0 });
+    gsap.set('#wifi-pw', { opacity: 0 });
+    gsap.set('#wifi-qr', { opacity: 0 });
+    const pw = $('wifi-pw');
+    if (pw) pw.classList.remove('show');
+
+    // Checkout content
+    gsap.set(['#co-time','#co-sub'], { opacity: 0 });
+    gsap.set(['#co-i1','#co-i2','#co-i3','#co-i4'], { opacity: 0, x: -8 });
+
+    // Lingua
+    setLang('de');
+    gsap.set('#gg2-header', { opacity: 0, y: -6 });
+  }
+
+  /* ── Loop principale ── */
+  async function runDemo() {
+    await wait(200);
+
+    while (true) {
+      resetAll();
+      await wait(400);
+
+      /* 1 ── Hero + header entrano */
+      const bg = $('gg2-bg');
+      if (bg) { await wait(60); bg.classList.add('zoomed'); }
+
+      await wait(180);
+      gsap.to('#gg2-header', { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' });
+      await wait(350);
+
+      /* Hero label */
+      gsap.to('#gg2-hero-label', { opacity: 1, duration: 0.4 });
+
+      /* 2 ── Pannello ACCESSO: card appare */
+      gsap.to('#panel-accesso', { opacity: 1, duration: 0.45 });
+      await wait(220);
+
+      gsap.to('#acc-card', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+      await wait(250);
+
+      /* Codice appare con leggero delay */
+      gsap.to('#acc-code', { opacity: 1, duration: 0.4, ease: 'power2.out' });
+      await wait(220);
+      gsap.to('#acc-loc',  { opacity: 1, duration: 0.38 });
+      await wait(350);
+
+      /* Foto step: appaiono in stagger */
+      gsap.to('#acc-p1', { opacity: 1, y: 0, duration: 0.40, ease: 'power2.out' });
+      await wait(130);
+      gsap.to('#acc-p2', { opacity: 1, y: 0, duration: 0.40, ease: 'power2.out' });
+      await wait(130);
+      gsap.to('#acc-p3', { opacity: 1, y: 0, duration: 0.40, ease: 'power2.out' });
+      await wait(1600);
+
+      /* 3 ── Switch a WIFI */
+      switchTab('wifi');
+      await wait(300);
+
+      gsap.to('#wifi-card', { opacity: 1, y: 0, duration: 0.48, ease: 'power2.out' });
+      await wait(280);
+
+      /* Nome rete */
+      gsap.to('#wifi-ssid', { opacity: 1, duration: 0.38 });
+      await wait(300);
+
+      /* Password appare sfocata */
+      gsap.to('#wifi-pw', { opacity: 1, duration: 0.38 });
+      await wait(300);
+      gsap.to('#wifi-hint', { opacity: 1, duration: 0.35 });
+      await wait(700);
+
+      /* Password si rivela */
+      const pw = $('wifi-pw');
+      if (pw) pw.classList.add('show');
+      await wait(600);
+
+      /* QR code appare */
+      gsap.to('#wifi-qr', { opacity: 1, duration: 0.45, ease: 'power2.out' });
+      await wait(1400);
+
+      /* 4 ── Switch a CHECKOUT */
+      switchTab('checkout');
+      await wait(320);
+
+      gsap.to('#co-time', { opacity: 1, duration: 0.45, ease: 'power2.out' });
+      await wait(200);
+      gsap.to('#co-sub',  { opacity: 1, duration: 0.38 });
+      await wait(350);
+
+      /* Voci checkout: stagger */
+      gsap.to('#co-i1', { opacity: 1, x: 0, duration: 0.34, ease: 'power2.out' });
+      await wait(110);
+      gsap.to('#co-i2', { opacity: 1, x: 0, duration: 0.34, ease: 'power2.out' });
+      await wait(110);
+      gsap.to('#co-i3', { opacity: 1, x: 0, duration: 0.34, ease: 'power2.out' });
+      await wait(110);
+      gsap.to('#co-i4', { opacity: 1, x: 0, duration: 0.34, ease: 'power2.out' });
+      await wait(1600);
+
+      /* 5 ── Torna ad ACCESSO + language cycling */
+      switchTab('accesso');
+      await wait(700);
+
+      /* Cicla: DE → FR → EN → IT */
+      for (const lang of ['fr', 'en', 'it']) {
+        gsap.to('.gg2-lang-pills', { opacity: 0.35, duration: 0.2 });
+        await wait(230);
+        setLang(lang);
+        gsap.to('.gg2-lang-pills', { opacity: 1, duration: 0.35, ease: 'power2.out' });
+        await wait(1000);
+      }
+
+      await wait(600);
+
+      /* 6 ── Fade out e loop */
+      gsap.to('#gg2', { opacity: 0, duration: 0.65, ease: 'power2.inOut' });
+      await wait(950);
+    }
+  }
+
+  document.fonts.ready.then(() => {
+    runDemo().catch(e => console.error('[gg-demo]', e));
+  });
+})();
+</script>
+</body>
+</html>

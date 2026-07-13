@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+html, body {
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ── FAQ Bot chat inside phone screen ── */
+.chatbot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #0b141a;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #e9edef;
+}
+
+/* Status bar */
+.chatbot-sb {
+  height: 28px;
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 14px 4px;
+  font-size: 10px; font-weight: 700;
+  background: #202c33;
+  flex-shrink: 0;
+}
+
+/* Chat header */
+.chatbot-hdr {
+  background: #202c33;
+  padding: 7px 12px 8px;
+  display: flex; align-items: center; gap: 9px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  flex-shrink: 0;
+}
+.chatbot-av {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #c4975a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+.chatbot-hdr-name { font-size: 11.5px; font-weight: 700; line-height: 1.2; }
+.chatbot-hdr-sub  { font-size: 9px; color: #25d366; }
+.chatbot-badge {
+  margin-left: auto;
+  background: #25d366; color: #fff;
+  font-size: 8.5px; font-weight: 700;
+  padding: 2px 7px; border-radius: 99px;
+}
+
+/* Chat body */
+.chatbot-body {
+  flex: 1; overflow: hidden; position: relative;
+  background-color: #0b141a;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.chatbot-feed {
+  padding: 10px 8px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+/* Messages */
+.fm {
+  max-width: 88%;
+  padding: 6px 9px 4px;
+  border-radius: 10px;
+  font-size: 10.5px; line-height: 1.42;
+}
+.fm.guest { background: #202c33; align-self: flex-start; border-bottom-left-radius: 2px; }
+.fm.bot   { background: #005c4b; align-self: flex-end;   border-bottom-right-radius: 2px; }
+
+.fm-sender { font-size: 9px; font-weight: 700; color: #c4975a; margin-bottom: 2px; }
+.fm-time   { font-size: 8.5px; opacity: 0.42; text-align: right; margin-top: 2px; }
+.ai-tag {
+  font-size: 8px; font-weight: 700;
+  background: rgba(196,151,90,0.18);
+  color: #c4975a;
+  border: 1px solid rgba(196,151,90,0.28);
+  border-radius: 3px; padding: 0 4px;
+  margin-right: 3px;
+}
+
+.chatbot-date {
+  font-size: 9px; color: #8696a0;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px; padding: 2px 8px;
+  align-self: center; margin-bottom: 2px;
+}
+
+/* Typing indicator */
+.chatbot-typing {
+  display: flex; gap: 3px; align-items: center;
+  padding: 7px 9px;
+  background: #005c4b;
+  border-radius: 10px; border-bottom-right-radius: 2px;
+  align-self: flex-end;
+}
+.chatbot-typing span {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255,255,255,0.55);
+  animation: fb 1.1s infinite;
+}
+.chatbot-typing span:nth-child(2) { animation-delay: 0.18s; }
+.chatbot-typing span:nth-child(3) { animation-delay: 0.36s; }
+
+/* Input bar */
+.chatbot-input {
+  background: #202c33;
+  padding: 6px 10px;
+  display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.chatbot-field {
+  flex: 1; background: #2a3942;
+  border-radius: 18px; padding: 6px 12px;
+  font-size: 10px; color: #8696a0;
+}
+
+/* Animations */
+@keyframes fi {
+  from { opacity:0; transform:translateY(6px) scale(0.97); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+@keyframes fb {
+  0%,60%,100% { opacity:.3; transform:translateY(0); }
+  30%         { opacity:1;  transform:translateY(-4px); }
+}
+
+.a1 { animation: fi 0.32s 0.3s both; }
+.a2 { animation: fi 0.32s 1.1s both; }
+.a3 { animation: fi 0.32s 1.8s both; }
+.a4 { animation: fi 0.32s 2.7s both; }
+.a5 { animation: fi 0.32s 3.6s both; }
+.a6 { animation: fi 0.32s 4.5s both; }
+.a7 { animation: fi 0.32s 5.4s both; }
+.a8 { animation: fi 0.32s 6.2s both; }
+
+/* Restart loop via re-render */
+.chatbot-feed.restart .a1,
+.chatbot-feed.restart .a2,
+.chatbot-feed.restart .a3,
+.chatbot-feed.restart .a4,
+.chatbot-feed.restart .a5,
+.chatbot-feed.restart .a6,
+.chatbot-feed.restart .a7,
+.chatbot-feed.restart .a8 { animation: none; opacity:0; }
+</style>
+</head>
+<body>
+
+<div class="guest-guide__visual">
+  <div class="gg-phone" id="gg-phone">
+    <div class="gg-phone__screen">
+      <div class="gg-island"></div>
+
+      <div class="chatbot">
+
+        <!-- Status bar -->
+        <div class="chatbot-sb">
+          <span>23:14</span>
+          <div style="display:flex;align-items:center;gap:5px">
+            <svg width="15" height="11" fill="none" viewBox="0 0 15 11">
+              <rect x="0" y="5" width="2.5" height="6" rx="1" fill="white" opacity=".35"/>
+              <rect x="4" y="3" width="2.5" height="8" rx="1" fill="white" opacity=".55"/>
+              <rect x="8" y="1" width="2.5" height="10" rx="1" fill="white" opacity=".8"/>
+              <rect x="12" y="0" width="2.5" height="11" rx="1" fill="white"/>
+            </svg>
+            <svg width="16" height="11" viewBox="0 0 24 12" fill="none">
+              <rect x="0" y="1" width="20" height="10" rx="2.5" stroke="white" stroke-opacity=".6" stroke-width="1.2"/>
+              <rect x="1.5" y="2.5" width="14" height="7" rx="1.5" fill="white" opacity=".8"/>
+              <path d="M21.5 4.5v3c.9-.3 1.4-.9 1.4-1.5s-.5-1.2-1.4-1.5z" fill="white" opacity=".5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Header -->
+        <div class="chatbot-hdr">
+          <div class="chatbot-av">AI</div>
+          <div>
+            <div class="chatbot-hdr-name">Antokia FAQ Bot</div>
+            <div class="chatbot-hdr-sub">● risponde sempre</div>
+          </div>
+          <div class="chatbot-badge">24/7</div>
+        </div>
+
+        <!-- Chat feed -->
+        <div class="chatbot-body">
+          <div class="chatbot-feed" id="chatbot-feed">
+            <div class="chatbot-date">Oggi · 23:14</div>
+
+            <div class="fm guest a1">
+              Ciao! Qual è la password del WiFi? 🙏
+              <div class="fm-time">23:14</div>
+            </div>
+
+            <div class="chatbot-typing a2"></div>
+
+            <div class="fm bot a3">
+              <div class="fm-sender"><span class="ai-tag">AI</span> Antokia Bot</div>
+              Ciao! 👋 La rete WiFi è:<br><br>
+              📶 <b>AntokiaGuest_5G</b><br>
+              🔒 Password: <b>benvenuto2024</b><br><br>
+              Tutto nel tuo Guest Site 🔗
+              <div class="fm-time">23:14 ✓✓</div>
+            </div>
+
+            <div class="fm guest a4">
+              A che ora devo fare il check-out?
+              <div class="fm-time">23:15</div>
+            </div>
+
+            <div class="chatbot-typing a5"></div>
+
+            <div class="fm bot a6">
+              <div class="fm-sender"><span class="ai-tag">AI</span> Antokia Bot</div>
+              Il check-out è entro le <b>11:00</b> 🕚<br><br>
+              Lascia le chiavi sul tavolo dell'ingresso. Buon soggiorno! 😊
+              <div class="fm-time">23:15 ✓✓</div>
+            </div>
+
+            <div class="fm guest a7">
+              Come si accende il riscaldamento?
+              <div class="fm-time">23:16</div>
+            </div>
+
+            <div class="fm bot a8">
+              <div class="fm-sender"><span class="ai-tag">AI</span> Antokia Bot</div>
+              Il termostato è nell'ingresso 🌡<br>
+              Imposta la temperatura con le frecce ▲▼ — si accende in 5 minuti.
+              <div class="fm-time">23:16 ✓✓</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="chatbot-input">
+          <div class="chatbot-field">Messaggio</div>
+          <span style="font-size:15px;color:#aebac1">🎤</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Loop: every ~9s reset animations by forcing re-render
+(function() {
+  var feed = document.getElementById('chatbot-feed');
+  var LOOP = 9500;
+  setInterval(function() {
+    feed.classList.add('restart');
+    void feed.offsetWidth; // force reflow
+    feed.classList.remove('restart');
+    // Re-trigger by cloning and replacing
+    var clone = feed.cloneNode(true);
+    feed.parentNode.replaceChild(clone, feed);
+  }, LOOP);
+})();
+</script>
+</body>
+</html>

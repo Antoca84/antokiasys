@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #111; display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px; }
+
+  .panel { width: 100%; max-width: 420px; background: #17140b;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    border: 1px solid rgba(196,151,90,0.15); }
+
+  .panel-header { background: rgba(196,151,90,0.08); border-bottom: 1px solid rgba(196,151,90,0.15);
+    padding: 14px 18px; display: flex; align-items: center; gap: 10px; }
+  .ph-dot { width: 8px; height: 8px; border-radius: 50%; background: #25d366;
+    box-shadow: 0 0 6px #25d366; flex-shrink: 0; }
+  .ph-title { font-size: 0.75rem; font-weight: 700; color: rgba(250,250,247,0.85);
+    letter-spacing: 0.04em; text-transform: uppercase; }
+  .ph-sub { font-size: 0.62rem; color: rgba(196,151,90,0.7); margin-left: auto; }
+
+  .timeline { padding: 16px 18px; display: flex; flex-direction: column; gap: 0; }
+
+  .step { display: flex; gap: 14px; position: relative; }
+  .step:not(:last-child) .step-line { position: absolute; left: 15px; top: 32px;
+    width: 1px; height: calc(100% + 0px); background: linear-gradient(to bottom, rgba(196,151,90,0.3), rgba(196,151,90,0.05)); }
+
+  .step-left { display: flex; flex-direction: column; align-items: center; width: 30px; flex-shrink: 0; }
+  .step-icon { width: 30px; height: 30px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; font-size: 0.85rem;
+    border: 1.5px solid; flex-shrink: 0; z-index: 1; }
+  .step-icon.done { background: rgba(37,211,102,0.12); border-color: rgba(37,211,102,0.4); }
+  .step-icon.active { background: rgba(196,151,90,0.15); border-color: rgba(196,151,90,0.6);
+    box-shadow: 0 0 12px rgba(196,151,90,0.2); }
+  .step-icon.pending { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1); }
+
+  .step-right { flex: 1; padding-bottom: 20px; }
+  .step-timing { font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 3px; }
+  .step-timing.done   { color: rgba(37,211,102,0.7); }
+  .step-timing.active { color: rgba(196,151,90,0.9); }
+  .step-timing.pending{ color: rgba(255,255,255,0.25); }
+  .step-title { font-size: 0.8rem; font-weight: 700; color: rgba(250,250,247,0.9); margin-bottom: 4px; line-height: 1.2; }
+  .step-body { font-size: 0.68rem; color: rgba(250,250,247,0.45); line-height: 1.45; }
+
+  .msg-preview { background: rgba(37,211,102,0.06); border: 1px solid rgba(37,211,102,0.15);
+    border-radius: 8px; padding: 7px 10px; margin-top: 6px;
+    font-size: 0.65rem; color: rgba(250,250,247,0.65); line-height: 1.4; }
+  .msg-preview-gold { background: rgba(196,151,90,0.07); border-color: rgba(196,151,90,0.2); }
+  .mp-label { font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 3px; opacity: 0.6; }
+  .mp-label.green { color: #25d366; }
+  .mp-label.gold  { color: #c4975a; }
+
+  @keyframes fi { to { opacity:1; transform:translateY(0); } }
+  .a1 { animation: fi 0.4s 0.1s both; opacity:0; transform:translateY(8px); }
+  .a2 { animation: fi 0.4s 0.5s both; opacity:0; transform:translateY(8px); }
+  .a3 { animation: fi 0.4s 0.9s both; opacity:0; transform:translateY(8px); }
+  .a4 { animation: fi 0.4s 1.4s both; opacity:0; transform:translateY(8px); }
+  .a5 { animation: fi 0.4s 1.9s both; opacity:0; transform:translateY(8px); }
+
+  /* Pulse su step attivo */
+  @keyframes pulse { 0%,100%{box-shadow:0 0 12px rgba(196,151,90,0.2)} 50%{box-shadow:0 0 20px rgba(196,151,90,0.45)} }
+  .step-icon.active { animation: pulse 2s 2s infinite; }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="panel-header">
+      <div class="ph-dot"></div>
+      <div class="ph-title">Check-in Automation</div>
+      <div class="ph-sub">Loft Milano · Asad</div>
+    </div>
+    <div class="timeline">
+
+      <div class="step a1">
+        <div class="step-line"></div>
+        <div class="step-left">
+          <div class="step-icon done">✓</div>
+        </div>
+        <div class="step-right">
+          <div class="step-timing done">-24h · Ieri 15:00</div>
+          <div class="step-title">Conferma prenotazione</div>
+          <div class="step-body">Messaggio automatico di benvenuto inviato</div>
+          <div class="msg-preview">
+            <div class="mp-label green">WhatsApp inviato</div>
+            Ciao Asad! Prenotazione confermata per domani. Ti manderò le istruzioni alle 13:00 🏠
+          </div>
+        </div>
+      </div>
+
+      <div class="step a2">
+        <div class="step-line"></div>
+        <div class="step-left">
+          <div class="step-icon done">✓</div>
+        </div>
+        <div class="step-right">
+          <div class="step-timing done">-2h · Oggi 13:00</div>
+          <div class="step-title">Istruzioni di accesso</div>
+          <div class="step-body">Codici, indicazioni e link Guest Site</div>
+          <div class="msg-preview">
+            <div class="mp-label green">WhatsApp + link</div>
+            Codice portone: 4591# · Piano 3 · Link guida 👉 antokia.it/loft/asad
+          </div>
+        </div>
+      </div>
+
+      <div class="step a3">
+        <div class="step-line"></div>
+        <div class="step-left">
+          <div class="step-icon active">●</div>
+        </div>
+        <div class="step-right">
+          <div class="step-timing active">Ora · 15:00</div>
+          <div class="step-title">Check-in confermato</div>
+          <div class="step-body">Ospite ha aperto il Guest Site</div>
+          <div class="msg-preview msg-preview-gold">
+            <div class="mp-label gold">Notifica host</div>
+            Asad ha effettuato l'accesso al Guest Site · nessuna azione richiesta ✓
+          </div>
+        </div>
+      </div>
+
+      <div class="step a4">
+        <div class="step-line"></div>
+        <div class="step-left">
+          <div class="step-icon pending">○</div>
+        </div>
+        <div class="step-right">
+          <div class="step-timing pending">Domani · 10:30</div>
+          <div class="step-title">Reminder check-out</div>
+          <div class="step-body">Messaggio automatico con checklist partenza</div>
+        </div>
+      </div>
+
+      <div class="step a5">
+        <div class="step-left">
+          <div class="step-icon pending">○</div>
+        </div>
+        <div class="step-right">
+          <div class="step-timing pending">Domani · 11:00</div>
+          <div class="step-title">Notifica team pulizie</div>
+          <div class="step-body">Alert automatico al gruppo WhatsApp pulizie</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
